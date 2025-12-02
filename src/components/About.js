@@ -3,25 +3,29 @@ import { motion } from "framer-motion";
 
 function About() {
   const highlights = [
-    { label: "Years Experience", value: "5+" },
-    { label: "Projects Completed", value: "20+" },
-    { label: "Technologies", value: "10+" },
-    { label: "Client Satisfaction", value: "100%" },
+    { label: "Backend Experience", value: "6+ Years" },
+    { label: "Systems Scaled", value: "1M+ Users" },
+    { label: "Cloud Deployments", value: "AWS / DO / GCP" },
+    { label: "Production Platforms", value: "20+" },
   ];
 
   const coreSkills = [
-    { skill: "Laravel / PHP", level: 90 },
-    { skill: "React Development", level: 85 },
-    { skill: "Database & MySQL", level: 80 },
-    { skill: "Front-end Development ", level: 50 },
-    
+    { skill: "Laravel / PHP — Advanced", level: 95 },
+    { skill: "API Architecture & Authentication", level: 90 },
+    { skill: "MySQL / Query Optimization", level: 90 },
+    { skill: "Redis / Queues / Caching", level: 85 },
+    { skill: "Microservices Architecture", level: 85 },
+    { skill: "DevOps / CI-CD / Linux", level: 80 },
+    { skill: "Node.js / Express", level: 70 },
   ];
 
   const services = [
-    "Web Development",
-    "API Development",
-    "Server Management",
-    "Problem Solving",
+    "Scalable API Development",
+    "Microservices Architecture",
+    "Cloud Hosting & Deployment",
+    "Database Optimization",
+    "Backend Security & Auth",
+    "System Performance & Load Handling",
   ];
 
   return (
@@ -41,18 +45,21 @@ function About() {
           {/* Left Side */}
           <div>
             <h3 className="text-xl font-semibold text-gray-800 mb-3">Who I Am</h3>
-            <p className="text-gray-600 mb-6">
-              I'm a passionate software engineer dedicated to crafting exceptional
-              digital experiences for both mobile and web platforms. I specialize in
-              building scalable, user-friendly applications with Laravel, PHP, and
-              modern frontend tools.
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              I am a Senior Backend Engineer focused on building scalable, secure, and
+              high-performance backend infrastructures. I specialize in Laravel, PHP,
+              MySQL/PostgreSQL, Redis, and system architecture — with proven experience
+              powering applications serving over
+              <span className="font-semibold text-blue-600"> 1 million users</span>
+              in real-world production environments.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-800 mb-3">What I Do</h3>
-            <p className="text-gray-600 mb-6">
-              I create high-performance, secure web applications using modern
-              technologies. From backend architecture to frontend optimization, I
-              bring ideas to life with clean code and scalable solutions.
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              I design backend systems with a deep emphasis on performance, distributed
+              architectures, API security, and database optimization. I handle full-cycle
+              backend engineering — from system design, implementation, cloud deployment,
+              and production monitoring to scaling.
             </p>
 
             {/* Services */}
@@ -62,17 +69,18 @@ function About() {
                   key={i}
                   className="flex items-center justify-center border rounded-lg py-3 shadow-sm bg-white hover:shadow-md transition"
                 >
-                  <span className="text-blue-600 font-medium">{service}</span>
+                  <span className="text-blue-600 font-medium text-center text-sm">
+                    {service}
+                  </span>
                 </div>
               ))}
             </div>
 
-            {/* Resume Button */}
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="inline-block bg-blue-600 text-white px-3 py-3 rounded-lg shadow hover:bg-blue-700 transition font-semibold"
+              className="inline-block bg-blue-600 text-white px-4 py-3 rounded-lg shadow hover:bg-blue-700 transition font-semibold"
             >
               📄 Download My Resume
             </a>
@@ -88,8 +96,12 @@ function About() {
               <div className="grid grid-cols-2 gap-6 text-center">
                 {highlights.map((item, i) => (
                   <div key={i}>
-                    <p className="text-2xl font-bold text-blue-600">{item.value}</p>
-                    <p className="text-gray-600 text-sm">{item.label}</p>
+                    <p className="text-2xl font-bold text-blue-600">
+                      {item.value}
+                    </p>
+                    <p className="text-gray-600 text-sm font-medium">
+                      {item.label}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -98,11 +110,11 @@ function About() {
             {/* Core Skills */}
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                Core Skills
+                Core Backend Skills
               </h3>
               {coreSkills.map((skill, i) => (
-                <div key={i} className="mb-4">
-                  <p className="text-gray-700 mb-1">{skill.skill}</p>
+                <div key={i} className="mb-5">
+                  <p className="text-gray-700 mb-1 font-medium">{skill.skill}</p>
                   <div className="w-full bg-gray-200 rounded-full h-3">
                     <motion.div
                       className="bg-blue-600 h-3 rounded-full"
@@ -111,7 +123,6 @@ function About() {
                       transition={{ duration: 1 }}
                     ></motion.div>
                   </div>
-                  <p className="text-sm text-gray-500">{skill.level}%</p>
                 </div>
               ))}
             </div>

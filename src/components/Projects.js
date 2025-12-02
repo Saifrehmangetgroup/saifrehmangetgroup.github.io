@@ -6,81 +6,75 @@ function Projects() {
     {
       title: "Raabta (Official PTI App)",
       description:
-        "Developed backend, APIs, and admin panel with scalable server management for PTI’s official app.",
-      tech: ["Laravel", "MySQL", "AWS"],
+        "Engineered the backend infrastructure serving over 1M+ users, including secure APIs, authentication, and AWS scaling optimizations for nationwide uptime.",
+      tech: ["Laravel", "MySQL", "AWS", "Redis", "Queues"],
       link: "https://ptirabta.pk",
       image: "/ptiraabta.png",
     },
     {
       title: "Linkon.social",
       description:
-        "A social platform built with CI4. Developed backend APIs, admin panel, and server setup.",
-      tech: ["CodeIgniter 4", "MySQL", "REST APIs"],
+        "Built the backend services and admin architecture for a social platform, including private messaging and media storage, with optimized routing and database indexing.",
+      tech: ["CI4", "MySQL", "REST APIs"],
       link: "https://linkon.social",
       image: "linkon.png",
     },
     {
       title: "Ingage.gg",
       description:
-        "Gaming tournament management platform with integrated backend for web and mobile apps.",
-      tech: ["Laravel", "MySQL", "APIs"],
+        "Developed tournament management APIs for real-time gaming events, including user authentication, match tracking, and scalable game logic.",
+      tech: ["Laravel", "MySQL", "Web APIs"],
       link: "https://ingage.gg",
       image: "ingage.png",
     },
     {
       title: "Hiphop (Short Video Platform)",
       description:
-        "TikTok-like short video platform with live streaming support. Built backend APIs and admin panel.",
-      tech: ["Laravel", "MySQL", "Streaming APIs"],
+        "Designed a TikTok-style media pipeline enabling video upload, compression, feed ranking, and optimized streaming APIs for low-latency content delivery.",
+      tech: ["Laravel", "MySQL", "Media Streaming"],
       link: "https://hiphop.socioon.com",
       image: "hiphop.png",
     },
     {
       title: "Club92",
       description:
-        "Audio-based live space app (similar to Clubhouse). Developed APIs, servers, and integrations.",
-      tech: ["Laravel", "MySQL", "WebRTC"],
+        "Built a scalable live-audio streaming backend with WebRTC integrations, channel management, role-based participation, and real-time communication.",
+      tech: ["Laravel", "MySQL", "WebRTC", "Redis"],
       link: "https://club92.socioon.com",
       image: "club92.png",
     },
     {
       title: "ShaadiAbroad.com",
       description:
-        "Wedding event platform with advanced event management features and scalability optimization.",
-      tech: ["Laravel", "MySQL", "AWS"],
+        "Architected a global event management system with heavy database usage, data compliance, and backend-driven performance optimizations.",
+      tech: ["Laravel", "PostgreSQL", "AWS"],
       link: "https://shaadiabroad.com",
       image: "shaadiabroad.png",
     },
+
     {
-      title: "Point of Sale System",
+      title: "Gtcree (LED E-commerce Platform)",
       description:
-        "Barcode-based POS system for sales, inventory, and transactions.",
-      tech: ["Laravel", "MySQL", "jQuery"],
-      link: null,
-      image: "pos.png",
+        "Developed a modern, high-performance e-commerce backend with product catalog management, user roles, secure checkout, and optimized MySQL indexing for fast product search.",
+      tech: ["Laravel", "MySQL", "E-commerce", "Caching"],
+      link: "https://gtcree.com",
+      image: "gtcree.png",
     },
     {
-      title: "Property ON",
+      title: "Bracktix (Smart Ticketing System)",
       description:
-        "System for admins, sellers, and buyers with efficient property listing and management features.",
-      tech: ["Laravel", "MySQL", "jQuery", "JavaScript"],
-      link: null,
-      image: "propertyon.png",
+        "Architected the backend for a tournament & event management platform with secure user authentication, real-time match logic, participant registration, and scalable API-driven operations using Laravel, MySQL & Redis.",
+      tech: ["Laravel", "Redis", "MySQL", "Sanctum"],
+      link: "https://bracktix.sadacode.com",
+      image: "bracktix.png",
     },
-    {
-      title: "Jobson’s Portfolio Website",
-      description:
-        "Professional company portfolio website with modern design and responsive UI.",
-      tech: ["PHP", "MySQL", "JavaScript"],
-      link: null,
-      image: "jobson.png",
-    },
+
+
   ];
 
   return (
     <section id="projects" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-3">
-        {/* Title */}
         <motion.h2
           className="text-3xl font-bold text-center mb-12"
           initial={{ opacity: 0, y: -30 }}
@@ -90,18 +84,16 @@ function Projects() {
           My <span className="text-blue-600">Projects</span>
         </motion.h2>
 
-        {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((proj, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition flex flex-col"
+              className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition flex flex-col overflow-hidden"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              whileHover={{ scale: 1.02 }}
             >
-              {/* Project Image */}
               {proj.image && (
                 <a
                   href={proj.link || "#"}
@@ -116,23 +108,33 @@ function Projects() {
                 </a>
               )}
 
-              {/* Project Info */}
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-xl font-semibold text-blue-600 mb-2">
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   {proj.title}
                 </h3>
-                <p className="text-gray-600 flex-1">{proj.description}</p>
-                <p className="text-sm text-gray-500 mt-3">
-                  <strong>Tech:</strong> {proj.tech.join(", ")}
+                <p className="text-sm text-gray-600 flex-1 leading-relaxed">
+                  {proj.description}
                 </p>
+
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {proj.tech.map((t, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-2 py-1 bg-blue-50 text-blue-600 border border-blue-200 rounded-md"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
                 {proj.link && (
                   <a
                     href={proj.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
+                    className="mt-4 inline-block bg-blue-600 text-white px-3 py-2 rounded-md text-xs font-medium hover:bg-blue-700 transition"
                   >
-                    View Project
+                    View Project →
                   </a>
                 )}
               </div>
