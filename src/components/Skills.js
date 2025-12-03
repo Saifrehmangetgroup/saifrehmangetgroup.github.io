@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaPhp, FaLaravel, FaNodeJs, FaGitAlt, FaDocker } from "react-icons/fa";
+import { FaReact, FaPhp, FaLaravel, FaNodeJs, FaGitAlt } from "react-icons/fa";
 import {
   SiMysql,
   SiHtml5,
@@ -18,6 +18,7 @@ import {
   SiNginx,
   SiLinux
 } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
 
 function Skills() {
@@ -51,7 +52,6 @@ function Skills() {
       desc: "Deploying & maintaining production-grade systems",
       skills: [
         { name: "AWS", icon: <SiAmazonwebservices className="text-yellow-600" /> },
-        { name: "Docker", icon: <FaDocker className="text-blue-500" /> },
         { name: "Linux & Server Management", icon: <SiLinux className="text-gray-800" /> },
         { name: "Nginx", icon: <SiNginx className="text-green-600" /> },
         { name: "CI/CD Pipelines", icon: <AiOutlineDeploymentUnit className="text-blue-600" /> },
@@ -74,6 +74,7 @@ function Skills() {
       title: "Professional Tools",
       desc: "Tools essential for backend development workflows",
       skills: [
+        { name: "VS Code", icon: <VscCode className="text-blue-500" /> },
         { name: "Git", icon: <FaGitAlt className="text-orange-600" /> },
         { name: "Postman (API Testing)", icon: <SiPostman className="text-red-500" /> },
         { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
