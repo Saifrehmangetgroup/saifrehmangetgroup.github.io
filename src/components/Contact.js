@@ -152,9 +152,7 @@ function Contact() {
                 >
                   <FaLinkedin className="text-blue-600 dark:text-blue-400 text-2xl hover:text-blue-800 dark:hover:text-blue-300 transition" />
                 </a>
-                <a href="https://twitter.com/yourTwitterHandle" target="_blank" rel="noreferrer">
-                  <FaTwitter className="text-sky-500 dark:text-sky-400 text-2xl hover:text-sky-700 dark:hover:text-sky-300 transition" />
-                </a>
+
               </div>
             </div>
 
