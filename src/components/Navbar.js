@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-2 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo / Name */}
         <h1 className="text-xl font-bold text-gray-800 dark:text-white">Muhammad Saif</h1>
 

@@ -14,7 +14,7 @@ import {
 function Contact() {
   return (
     <section id="contact" className="py-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-0 md:px-3">
+      <div className="max-w-6xl mx-auto px-4">
 
         {/* Title */}
         <motion.h2
@@ -23,7 +23,7 @@ function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Let’s <span className="text-blue-600 dark:text-blue-400">Connect</span>
+          Let's <span className="text-blue-600 dark:text-blue-400">Connect</span>
         </motion.h2>
         <motion.p
           className="text-center text-gray-600 dark:text-gray-300 mb-12"
@@ -148,7 +148,7 @@ function Contact() {
             <div className="mt-8">
               <p className="font-medium mb-3 text-gray-800 dark:text-white">Social</p>
               <div className="flex space-x-4">
-                <a href="https://github.com/yourGitHubUser" target="_blank" rel="noreferrer">
+                <a href="https://github.com/Saifrehmangetgroup" target="_blank" rel="noreferrer">
                   <FaGithub className="text-gray-700 dark:text-gray-300 text-2xl hover:text-black dark:hover:text-white transition" />
                 </a>
                 <a

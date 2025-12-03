@@ -61,7 +61,7 @@ function Experience() {
 
   return (
     <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-5xl mx-auto px-3">
+      <div className="max-w-5xl mx-auto px-4">
 
         {/* Work Experience */}
         <motion.h2
