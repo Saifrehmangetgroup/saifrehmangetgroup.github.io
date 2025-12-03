@@ -5,7 +5,7 @@ function Experience() {
   const work = [
     {
       role: "Senior PHP Web Developer",
-      company: "Get Group",
+      company: "Socioon",
       location: "Lahore, Pakistan",
       type: "Full Time",
       date: "Aug 2023 – Present",

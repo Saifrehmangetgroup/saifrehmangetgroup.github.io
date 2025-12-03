@@ -8,7 +8,7 @@ function Projects() {
       description:
         "Engineered the backend infrastructure serving over 1M+ users, including secure APIs, authentication, and AWS scaling optimizations for nationwide uptime.",
       tech: ["Laravel", "MySQL", "AWS", "Redis", "Queues"],
-      link: "https://ptirabta.pk",
+      link: "https://ptiraabta.pk",
       image: "/ptiraabta.png",
     },
     {
@@ -61,9 +61,9 @@ function Projects() {
       image: "gtcree.png",
     },
     {
-      title: "Bracktix (Smart Ticketing System)",
+      title: "Bracktix",
       description:
-        "Architected the backend for a tournament & event management platform with secure user authentication, real-time match logic, participant registration, and scalable API-driven operations using Laravel, MySQL & Redis.",
+        "Developed tournament management APIs for real-time gaming events, including user authentication, match tracking, and scalable game logic.",
       tech: ["Laravel", "Redis", "MySQL", "Sanctum"],
       link: "https://bracktix.sadacode.com",
       image: "bracktix.png",

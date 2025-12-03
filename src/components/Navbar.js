@@ -30,15 +30,13 @@ function Navbar() {
           >
             Resume
           </a>
-          <a href="https://github.com/" target="_blank" rel="noreferrer">
+          <a href="https://github.com/Saifrehmangetgroup" target="_blank" rel="noreferrer">
             <FaGithub className="w-5 h-5 text-gray-600 hover:text-black" />
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/muhammad-saif-urrehman" target="_blank" rel="noreferrer">
             <FaLinkedin className="w-5 h-5 text-gray-600 hover:text-blue-600" />
           </a>
-          <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-            <FaTwitter className="w-5 h-5 text-gray-600 hover:text-blue-500" />
-          </a>
+         
         </div>
 
         {/* Mobile Hamburger */}
