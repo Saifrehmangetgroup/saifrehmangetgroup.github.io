@@ -82,21 +82,21 @@ function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-3">
 
         <motion.h2
-          className="text-3xl font-bold text-center mb-4 text-gray-800"
+          className="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          My <span className="text-blue-600">Skills</span>
+          My <span className="text-blue-600 dark:text-blue-400">Skills</span>
         </motion.h2>
 
         <motion.p
-          className="text-center text-gray-600 mb-12"
+          className="text-center text-gray-600 dark:text-gray-300 mb-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -108,16 +108,16 @@ function Skills() {
         {categories.map((category, i) => (
           <motion.div
             key={i}
-            className="bg-white rounded-lg shadow p-7 mb-8 border border-gray-100 hover:shadow-lg transition"
+            className="bg-white dark:bg-gray-800 rounded-lg shadow p-7 mb-8 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.15, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-semibold text-gray-800 mb-1">
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-1">
               {category.title}
             </h3>
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
               {category.desc}
             </p>
 
@@ -125,14 +125,14 @@ function Skills() {
               {category.skills.map((skill, j) => (
                 <motion.div
                   key={j}
-                  className="flex items-center space-x-3 border rounded-lg px-4 py-3 bg-gray-50 hover:bg-blue-50 hover:border-blue-200 transition"
+                  className="flex items-center space-x-3 border rounded-lg px-4 py-3 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 hover:bg-blue-50 dark:hover:bg-gray-600 hover:border-blue-200 dark:hover:border-gray-500 transition"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: j * 0.05, duration: 0.4 }}
                   viewport={{ once: true }}
                 >
                   <span className="text-2xl">{skill.icon}</span>
-                  <span className="font-medium text-gray-700">{skill.name}</span>
+                  <span className="font-medium text-gray-700 dark:text-gray-200">{skill.name}</span>
                 </motion.div>
               ))}
             </div>

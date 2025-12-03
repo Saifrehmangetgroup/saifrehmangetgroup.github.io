@@ -73,22 +73,22 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-3">
         <motion.h2
-          className="text-3xl font-bold text-center mb-12"
+          className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          My <span className="text-blue-600">Projects</span>
+          My <span className="text-blue-600 dark:text-blue-400">Projects</span>
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((proj, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition flex flex-col overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition flex flex-col overflow-hidden"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
@@ -109,10 +109,10 @@ function Projects() {
               )}
 
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
                   {proj.title}
                 </h3>
-                <p className="text-sm text-gray-600 flex-1 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-300 flex-1 leading-relaxed">
                   {proj.description}
                 </p>
 
@@ -120,7 +120,7 @@ function Projects() {
                   {proj.tech.map((t, i) => (
                     <span
                       key={i}
-                      className="text-xs px-2 py-1 bg-blue-50 text-blue-600 border border-blue-200 rounded-md"
+                      className="text-xs px-2 py-1 bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300 border border-blue-200 dark:border-blue-700 rounded-md"
                     >
                       {t}
                     </span>

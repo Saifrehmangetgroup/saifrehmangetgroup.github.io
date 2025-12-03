@@ -29,33 +29,33 @@ function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-3">
         {/* Title */}
         <motion.h2
-          className="text-3xl font-bold text-center mb-12 text-gray-800"
+          className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          About <span className="text-blue-600">Me</span>
+          About <span className="text-blue-600 dark:text-blue-400">Me</span>
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left Side */}
           <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">Who I Am</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Who I Am</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
               I am a Senior Backend Engineer focused on building scalable, secure, and
               high-performance backend infrastructures. I specialize in Laravel, PHP,
               MySQL/PostgreSQL, Redis, and system architecture — with proven experience
               powering applications serving over
-              <span className="font-semibold text-blue-600"> 1 million users</span>
+              <span className="font-semibold text-blue-600 dark:text-blue-400"> 1 million users</span>
               in real-world production environments.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">What I Do</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">What I Do</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
               I design backend systems with a deep emphasis on performance, distributed
               architectures, API security, and database optimization. I handle full-cycle
               backend engineering — from system design, implementation, cloud deployment,
@@ -67,9 +67,9 @@ function About() {
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center border rounded-lg py-3 shadow-sm bg-white hover:shadow-md transition"
+                  className="flex items-center justify-center border rounded-lg py-3 shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 hover:shadow-md transition"
                 >
-                  <span className="text-blue-600 font-medium text-center text-sm">
+                  <span className="text-blue-600 dark:text-blue-400 font-medium text-center text-sm">
                     {service}
                   </span>
                 </div>
@@ -89,17 +89,17 @@ function About() {
           {/* Right Side */}
           <div className="space-y-8">
             {/* Highlights */}
-            <div className="bg-white rounded-lg shadow p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 transition-colors duration-300">
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
                 Experience Highlights
               </h3>
               <div className="grid grid-cols-2 gap-6 text-center">
                 {highlights.map((item, i) => (
                   <div key={i}>
-                    <p className="text-2xl font-bold text-blue-600">
+                    <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                       {item.value}
                     </p>
-                    <p className="text-gray-600 text-sm font-medium">
+                    <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">
                       {item.label}
                     </p>
                   </div>
@@ -108,14 +108,14 @@ function About() {
             </div>
 
             {/* Core Skills */}
-            <div className="bg-white rounded-lg shadow p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 transition-colors duration-300">
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
                 Core Backend Skills
               </h3>
               {coreSkills.map((skill, i) => (
                 <div key={i} className="mb-5">
-                  <p className="text-gray-700 mb-1 font-medium">{skill.skill}</p>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
+                  <p className="text-gray-700 dark:text-gray-300 mb-1 font-medium">{skill.skill}</p>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
                     <motion.div
                       className="bg-blue-600 h-3 rounded-full"
                       initial={{ width: 0 }}

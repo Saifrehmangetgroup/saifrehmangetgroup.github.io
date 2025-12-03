@@ -59,29 +59,29 @@ function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-50">
+    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-3">
 
         {/* Work Experience */}
-        <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
-          Work <span className="text-blue-600">Experience</span>
+        <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
+          Work <span className="text-blue-600 dark:text-blue-400">Experience</span>
         </h2>
 
         <div className="space-y-6">
           {work.map((job, i) => (
             <div
               key={i}
-              className="bg-white shadow-md rounded-lg p-5 hover:shadow-lg transition border border-gray-100"
+              className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-5 hover:shadow-lg transition border border-gray-100 dark:border-gray-700"
             >
               {/* Top Row */}
               <div className="flex justify-between items-center">
                 <div>
-                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                    <FaBriefcase className="text-blue-600" />
+                  <h3 className="text-lg font-semibold flex items-center gap-2 text-gray-800 dark:text-white">
+                    <FaBriefcase className="text-blue-600 dark:text-blue-400" />
                     {job.role}
                   </h3>
-                  <p className="text-blue-600 font-medium">{job.company}</p>
-                  <div className="flex gap-4 text-gray-600 text-sm mt-1">
+                  <p className="text-blue-600 dark:text-blue-400 font-medium">{job.company}</p>
+                  <div className="flex gap-4 text-gray-600 dark:text-gray-400 text-sm mt-1">
                     <span className="flex items-center gap-1">
                       <FaMapMarkerAlt /> {job.location}
                     </span>
@@ -92,13 +92,13 @@ function Experience() {
                 </div>
 
                 {/* Date */}
-                <span className="bg-blue-100 text-blue-600 text-sm px-3 py-1 rounded-full whitespace-nowrap">
+                <span className="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm px-3 py-1 rounded-full whitespace-nowrap">
                   {job.date}
                 </span>
               </div>
 
               {/* Bullet Points */}
-              <ul className="text-sm text-gray-700 mt-4 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-gray-700 dark:text-gray-300 mt-4 space-y-1 list-disc list-inside">
                 {job.bullets.map((point, index) => (
                   <li key={index}>{point}</li>
                 ))}
@@ -108,22 +108,22 @@ function Experience() {
         </div>
 
         {/* Education */}
-        <h2 className="text-3xl font-bold text-center mt-16 mb-10 text-gray-800">
+        <h2 className="text-3xl font-bold text-center mt-16 mb-10 text-gray-800 dark:text-white">
           Education
         </h2>
 
         {education.map((edu, i) => (
           <div
             key={i}
-            className="bg-white shadow-md rounded-lg p-5 flex justify-between items-center hover:shadow-lg transition border border-gray-100"
+            className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-5 flex justify-between items-center hover:shadow-lg transition border border-gray-100 dark:border-gray-700"
           >
             <div>
-              <h3 className="text-lg font-semibold flex items-center gap-2">
-                <FaGraduationCap className="text-blue-600" />
+              <h3 className="text-lg font-semibold flex items-center gap-2 text-gray-800 dark:text-white">
+                <FaGraduationCap className="text-blue-600 dark:text-blue-400" />
                 {edu.role}
               </h3>
-              <p className="text-blue-600 font-medium">{edu.company}</p>
-              <div className="flex gap-4 text-gray-600 text-sm mt-1">
+              <p className="text-blue-600 dark:text-blue-400 font-medium">{edu.company}</p>
+              <div className="flex gap-4 text-gray-600 dark:text-gray-400 text-sm mt-1">
                 <span className="flex items-center gap-1">
                   <FaMapMarkerAlt /> {edu.location}
                 </span>
@@ -133,7 +133,7 @@ function Experience() {
               </div>
             </div>
 
-            <span className="bg-blue-100 text-blue-600 text-sm px-3 py-1 rounded-full whitespace-nowrap">
+            <span className="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm px-3 py-1 rounded-full whitespace-nowrap">
               {edu.date}
             </span>
           </div>

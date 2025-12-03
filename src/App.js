@@ -8,19 +8,21 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 function App() {
   return (
-    <div>
-      <Navbar />
-      <Hero />
-      <About/>
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
-     
-
-    </div>
+    <ThemeProvider>
+      <div>
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+      </div>
+    </ThemeProvider>
   );
 }
 
