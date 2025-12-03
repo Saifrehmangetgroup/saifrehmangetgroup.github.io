@@ -7,10 +7,10 @@ function Navbar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors duration-300">
+    <nav className="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo / Name */}
-        <h1 className="text-xl font-bold text-gray-800 dark:text-white">Muhammad Saif</h1>
+        <h1 className="text-xl font-bold text-gray-800 dark:text-white">Muhammad Saif Ur Rehman</h1>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
