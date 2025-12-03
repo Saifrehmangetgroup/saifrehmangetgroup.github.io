@@ -41,7 +41,13 @@ function About() {
           About <span className="text-blue-600 dark:text-blue-400">Me</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <motion.div
+          className="grid md:grid-cols-2 gap-12 items-start"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           {/* Left Side */}
           <div>
             <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Who I Am</h3>
@@ -127,9 +133,9 @@ function About() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </section >
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { FaBriefcase, FaGraduationCap, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 function Experience() {
@@ -63,11 +64,23 @@ function Experience() {
       <div className="max-w-5xl mx-auto px-3">
 
         {/* Work Experience */}
-        <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
+        <motion.h2
+          className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           Work <span className="text-blue-600 dark:text-blue-400">Experience</span>
-        </h2>
+        </motion.h2>
 
-        <div className="space-y-6">
+        <motion.div
+          className="space-y-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           {work.map((job, i) => (
             <div
               key={i}
@@ -105,12 +118,18 @@ function Experience() {
               </ul>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Education */}
-        <h2 className="text-3xl font-bold text-center mt-16 mb-10 text-gray-800 dark:text-white">
+        <motion.h2
+          className="text-3xl font-bold text-center mt-16 mb-10 text-gray-800 dark:text-white"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           Education
-        </h2>
+        </motion.h2>
 
         {education.map((edu, i) => (
           <div

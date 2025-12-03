@@ -25,9 +25,15 @@ function Contact() {
         >
           Let’s <span className="text-blue-600 dark:text-blue-400">Connect</span>
         </motion.h2>
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
+        <motion.p
+          className="text-center text-gray-600 dark:text-gray-300 mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           Open to freelance, remote, and full-time opportunities — feel free to reach out.
-        </p>
+        </motion.p>
 
         {/* Grid layout */}
         <div className="grid md:grid-cols-2 gap-10">
