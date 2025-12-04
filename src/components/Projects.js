@@ -84,7 +84,7 @@ function Projects() {
           My <span className="text-blue-600 dark:text-blue-400">Projects</span>
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((proj, index) => (
             <motion.div
               key={index}

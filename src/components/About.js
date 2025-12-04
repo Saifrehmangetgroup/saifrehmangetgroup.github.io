@@ -56,8 +56,8 @@ function About() {
               high-performance backend infrastructures. I specialize in Laravel, PHP,
               MySQL/PostgreSQL, Redis, and system architecture — with proven experience
               powering applications serving over
-              <span className="font-semibold text-blue-600 dark:text-blue-400"> 1 million users</span>
-              in real-world production environments.
+              <span className="font-semibold text-blue-600 dark:text-blue-400"> 1 million users </span>
+               in real-world production environments.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">What I Do</h3>
