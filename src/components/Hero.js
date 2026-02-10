@@ -6,50 +6,71 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="min-h-screen bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300"
     >
-      <div className="min-h-screen flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4">
-        {/* Left Side: Intro */}
+      <div className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between max-w-7xl mx-auto px-6">
+
+        {/* Left Content */}
         <div className="flex-1 text-center md:text-left">
-          <motion.h2
-            className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-3 leading-tight"
+
+          {/* Availability Badge */}
+          <motion.span
+            className="inline-block mb-4 px-4 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 text-sm font-semibold"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            ✅ Available for Freelance & Remote Work
+          </motion.span>
+
+          {/* Name */}
+          <motion.h1
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Muhammad Saif Ur Rehman
+            Muhammad Saif <br className="hidden sm:block" /> Ur Rehman
+          </motion.h1>
+
+          {/* Title */}
+          <motion.h2
+            className="text-xl sm:text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Senior Laravel Backend Engineer
           </motion.h2>
 
-          <motion.div
-            className="text-gray-600 dark:text-gray-300 font-medium mb-4 text-lg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.15 }}
-          >
-            Backend Engineer • API Architect • Database Optimizer
-          </motion.div>
-
-          <motion.h3
-            className="text-xl sm:text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.25 }}
-          >
-            Senior Laravel & PHP Backend Engineer
-          </motion.h3>
-
+          {/* Value Proposition */}
           <motion.p
-            className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-xl leading-relaxed"
+            className="text-lg text-gray-700 dark:text-gray-300 mb-6 max-w-xl leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            I design and build high-performance backend infrastructures, scalable APIs,
-            secure authentication systems, and optimized database architectures using
-            Laravel, MySQL/PostgreSQL, Redis, microservices, queues, caching layers,
-            and DevOps deployments across AWS, GCP & DigitalOcean.
+            I help startups and businesses build fast, secure, and scalable backend
+            systems with modern APIs, payment integrations, and cloud-ready
+            infrastructure — so your product runs reliably at scale.
           </motion.p>
 
+          {/* Tech Stack */}
+          <motion.div
+            className="flex flex-wrap gap-2 mb-8 justify-center md:justify-start text-sm text-gray-600 dark:text-gray-400"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Laravel</span>
+            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">REST APIs</span>
+            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Stripe</span>
+            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Redis</span>
+            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">AWS</span>
+            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">MySQL</span>
+          </motion.div>
+
+          {/* CTA Buttons */}
           <motion.div
             className="flex flex-wrap gap-4 justify-center md:justify-start"
             initial={{ opacity: 0 }}
@@ -57,45 +78,54 @@ function Hero() {
             transition={{ delay: 0.5 }}
           >
             <a
-              href="#projects"
-              className="bg-blue-600 text-white px-5 py-3 rounded-lg shadow hover:bg-blue-700 transition font-medium"
+              href="#contact"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 hover:shadow-xl transition font-semibold"
             >
-              View My Work
+              🚀 Hire Me
             </a>
 
             <a
-              href="#contact"
-              className="bg-gray-900 dark:bg-gray-700 text-white px-5 py-3 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition font-medium"
+              href="#projects"
+              className="border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 px-6 py-3 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition font-semibold"
             >
-              Let's Talk
+              View Projects
             </a>
 
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-5 py-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition font-medium"
+              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition font-medium"
             >
-              📄 Download CV
+              📄 Resume
             </a>
           </motion.div>
         </div>
 
-        {/* Right Side: Profile Image */}
+        {/* Right Image */}
         <motion.div
-          className="flex-1 flex justify-center mt-12 md:mt-0"
-          initial={{ opacity: 0, scale: 0.8 }}
+          className="flex-1 flex justify-center mb-10 md:mb-0"
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.45 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="w-80 h-80 rounded-full border-4 border-blue-500 shadow-xl overflow-hidden">
-            <img
-              src={profileImg}
-              alt="Muhammad Saif Ur Rehman"
-              className="w-full h-full object-cover"
-            />
+          <div className="relative">
+
+            {/* Glow */}
+            <div className="absolute inset-0 rounded-full bg-blue-400 blur-2xl opacity-20"></div>
+
+            {/* Image */}
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full border-4 border-blue-500 shadow-2xl overflow-hidden bg-white">
+              <img
+                src={profileImg}
+                alt="Muhammad Saif Ur Rehman"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
           </div>
         </motion.div>
+
       </div>
     </section>
   );
