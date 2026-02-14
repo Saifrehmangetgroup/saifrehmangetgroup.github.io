@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 function Projects() {
   const projects = [
@@ -7,17 +8,19 @@ function Projects() {
       title: "Raabta (Official PTI App)",
       description:
         "Engineered the backend infrastructure serving over 1M+ users, including secure APIs, authentication, and AWS scaling optimizations for nationwide uptime.",
-      tech: ["Laravel", "MySQL", "AWS", "Redis", "Queues"],
+      tech: ["Laravel", "MySQL", "AWS", "Redis"],
       link: "https://ptiraabta.pk",
       image: "/ptiraabta.png",
+      tag: "Government"
     },
     {
       title: "Linkon.social",
       description:
-        "Built the backend services and admin architecture for a social platform, including private messaging and media storage, with optimized routing and database indexing.",
+        "Built the backend services and admin architecture for a social platform, including private messaging and media storage, with optimized routing.",
       tech: ["CI4", "MySQL", "REST APIs"],
       link: "https://linkon.social",
-      image: "linkon.png",
+      image: "/linkon.png",
+      tag: "Social Media"
     },
     {
       title: "Ingage.gg",
@@ -25,118 +28,139 @@ function Projects() {
         "Developed tournament management APIs for real-time gaming events, including user authentication, match tracking, and scalable game logic.",
       tech: ["Laravel", "MySQL", "Web APIs"],
       link: "https://ingage.gg",
-      image: "ingage.png",
+      image: "/ingage.png",
+      tag: "Gaming"
     },
     {
-      title: "Hiphop (Short Video Platform)",
+      title: "Jobson",
       description:
-        "Designed a TikTok-style media pipeline enabling video upload, compression, feed ranking, and optimized streaming APIs for low-latency content delivery.",
-      tech: ["Laravel", "MySQL", "Media Streaming"],
-      link: "https://hiphop.socioon.com",
-      image: "hiphop.png",
+        "Engineered a comprehensive job portal with advanced search, applicant tracking, and recruiter dashboards using Laravel and MySQL.",
+      tech: ["Laravel", "MySQL", "ATS"],
+      link: "https://jobson.pk",
+      image: "/jobson.png",
+      tag: "Recruitment"
+    },
+    {
+      title: "PropertyOn",
+      description:
+        "Developed a real estate management system featuring property listings, lead management, and automated client notifications.",
+      tech: ["Laravel", "MySQL", "Real Estate"],
+      link: "https://propertyon.com",
+      image: "/propertyon.png",
+      tag: "Real Estate"
     },
     {
       title: "Club92",
       description:
         "Built a scalable live-audio streaming backend with WebRTC integrations, channel management, role-based participation, and real-time communication.",
-      tech: ["Laravel", "MySQL", "WebRTC", "Redis"],
+      tech: ["Laravel", "WebRTC", "Redis"],
       link: "https://club92.socioon.com",
-      image: "club92.png",
+      image: "/club92.png",
+      tag: "Streaming"
     },
-    {
-      title: "ShaadiAbroad.com",
-      description:
-        "Architected a global event management system with heavy database usage, data compliance, and backend-driven performance optimizations.",
-      tech: ["Laravel", "PostgreSQL", "AWS"],
-      link: "https://shaadiabroad.com",
-      image: "shaadiabroad.png",
-    },
-
-    {
-      title: "Gtcree (LED E-commerce Platform)",
-      description:
-        "Developed a modern, high-performance e-commerce backend with product catalog management, user roles, secure checkout, and optimized MySQL indexing for fast product search.",
-      tech: ["Laravel", "MySQL", "E-commerce", "Caching"],
-      link: "https://gtcree.com",
-      image: "gtcree.png",
-    },
-    {
-      title: "Bracktix",
-      description:
-        "Developed tournament management APIs for real-time gaming events, including user authentication, match tracking, and scalable game logic.",
-      tech: ["Laravel", "Redis", "MySQL", "Sanctum"],
-      link: "https://bracktix.sadacode.com",
-      image: "bracktix.png",
-    },
-
-
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          My <span className="text-blue-600 dark:text-blue-400">Projects</span>
-        </motion.h2>
+    <section id="projects" className="relative py-24">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Title */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold mb-4"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              Featured <span className="text-gradient">Projects</span>
+            </motion.h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
+              A collection of systems I've architected, focusing on performance, security, and user experience at scale.
+            </p>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="https://github.com/Saifrehmangetgroup"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold hover:underline"
+            >
+              Check more on GitHub <FaExternalLinkAlt className="text-sm" />
+            </a>
+          </motion.div>
+        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((proj, index) => (
             <motion.div
               key={index}
-              className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition flex flex-col overflow-hidden"
-              initial={{ opacity: 0, y: 40 }}
+              className="group relative flex flex-col glass-card rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ scale: 1.02 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {proj.image && (
-                <a
-                  href={proj.link || "#"}
-                  target={proj.link ? "_blank" : "_self"}
-                  rel="noreferrer"
-                >
-                  <img
-                    src={proj.image}
-                    alt={proj.title}
-                    className="w-full h-48 object-cover"
-                  />
-                </a>
-              )}
+              {/* Image Container */}
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+                {/* Tag Overlay */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-gray-900/90 text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 shadow-xl">
+                    {proj.tag}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-8 flex flex-col flex-1">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {proj.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 flex-1 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-1">
                   {proj.description}
                 </p>
 
-                <div className="mt-3 flex flex-wrap gap-2">
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-8">
                   {proj.tech.map((t, i) => (
                     <span
                       key={i}
-                      className="text-xs px-2 py-1 bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300 border border-blue-200 dark:border-blue-700 rounded-md"
+                      className="text-[10px] font-bold px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 uppercase tracking-tighter"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                {proj.link && (
+                {/* Links */}
+                <div className="flex items-center gap-4">
                   <a
                     href={proj.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-4 inline-block bg-blue-600 text-white px-3 py-2 rounded-md text-xs font-medium hover:bg-blue-700 transition"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3 rounded-xl text-sm font-bold hover:premium-gradient hover:text-white transition-all shadow-lg"
                   >
-                    View Project →
+                    View Case Study <FaExternalLinkAlt className="text-xs" />
                   </a>
-                )}
+                  <a
+                    href="https://github.com/Saifrehmangetgroup"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-12 h-12 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded-xl hover:border-blue-500 transition-colors text-gray-600 dark:text-gray-400"
+                  >
+                    <FaGithub />
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}

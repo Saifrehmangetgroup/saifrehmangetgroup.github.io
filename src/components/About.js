@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaRocket, FaServer, FaCode, FaShieldAlt } from "react-icons/fa";
 
 function About() {
   const highlights = [
-    { label: "Backend Experience", value: "6+ Years" },
-    { label: "Systems Scaled", value: "1M+ Users" },
-    { label: "Cloud Deployments", value: "AWS / DO / GCP" },
-    { label: "Production Platforms", value: "20+" },
+    { label: "Backend Experience", value: "6+ Years", icon: <FaCode /> },
+    { label: "Systems Scaled", value: "1M+ Users", icon: <FaRocket /> },
+    { label: "Cloud Deployments", value: "AWS / DO / GCP", icon: <FaServer /> },
+    { label: "Security Focused", value: "OAuth / JWT", icon: <FaShieldAlt /> },
   ];
 
   const coreSkills = [
@@ -16,7 +17,6 @@ function About() {
     { skill: "Redis / Queues / Caching", level: 85 },
     { skill: "Microservices Architecture", level: 85 },
     { skill: "DevOps / CI-CD / Linux", level: 80 },
-    { skill: "Node.js / Express", level: 70 },
   ];
 
   const services = [
@@ -25,117 +25,113 @@ function About() {
     "Cloud Hosting & Deployment",
     "Database Optimization",
     "Backend Security & Auth",
-    "System Performance & Load Handling",
+    "System Performance",
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="about" className="relative py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Title */}
-        <motion.h2
-          className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          About <span className="text-blue-600 dark:text-blue-400">Me</span>
-        </motion.h2>
+        <div className="text-center mb-16">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            About <span className="text-gradient">Professional Journey</span>
+          </motion.h2>
+          <div className="h-1.5 w-20 bg-blue-600 mx-auto rounded-full" />
+        </div>
 
-        <motion.div
-          className="grid md:grid-cols-2 gap-12 items-start"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          {/* Left Side */}
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Who I Am</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              I am a Senior Backend Engineer focused on building scalable, secure, and
-              high-performance backend infrastructures. I specialize in Laravel, PHP,
-              MySQL/PostgreSQL, Redis, and system architecture — with proven experience
-              powering applications serving over
-              <span className="font-semibold text-blue-600 dark:text-blue-400"> 1 million users </span>
-               in real-world production environments.
-            </p>
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          {/* Left Side: Bio (7 cols) */}
+          <motion.div
+            className="lg:col-span-7 space-y-8"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="glass-card p-8 rounded-3xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 blur-2xl" />
 
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">What I Do</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              I design backend systems with a deep emphasis on performance, distributed
-              architectures, API security, and database optimization. I handle full-cycle
-              backend engineering — from system design, implementation, cloud deployment,
-              and production monitoring to scaling.
-            </p>
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3 text-gray-800 dark:text-white">
+                <span className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white text-sm">01</span>
+                Engineer's Mission
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                I am a <span className="text-gray-900 dark:text-white font-semibold">Senior Backend Engineer</span> dedicated to crafting high-performance, resilient infrastructures. With a focus on <span className="text-blue-600 dark:text-blue-400 font-medium italic">distributed systems</span> and <span className="text-blue-600 dark:text-blue-400 font-medium italic">secure API design</span>, I help businesses scale their digital footprint.
+              </p>
 
-            {/* Services */}
-            <div className="grid grid-cols-2 gap-4 mb-6">
+              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                Over the past 6 years, I've transitioned from building complex monolithic applications to designing microservices that serve over <span className="font-bold text-gray-900 dark:text-white">1 million active users</span>. I thrive on solving database bottlenecks and optimizing server-side latency.
+              </p>
+            </div>
+
+            {/* Services Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center border rounded-lg py-3 shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 hover:shadow-md transition"
+                  className="glass-card p-4 rounded-2xl hover:border-blue-500/30 transition-colors group cursor-default"
                 >
-                  <span className="text-blue-600 dark:text-blue-400 font-medium text-center text-sm">
+                  <p className="text-sm font-bold text-gray-700 dark:text-gray-300 group-hover:text-blue-500 transition-colors">
                     {service}
-                  </span>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Side: Stats & Skills (5 cols) */}
+          <motion.div
+            className="lg:col-span-5 space-y-6"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {highlights.map((item, i) => (
+                <div key={i} className="glass-card p-6 rounded-2xl text-center">
+                  <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-600 dark:text-blue-400 mx-auto mb-3 text-xl">
+                    {item.icon}
+                  </div>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{item.value}</p>
+                  <p className="text-[10px] uppercase tracking-widest font-bold text-gray-500 mt-1">{item.label}</p>
                 </div>
               ))}
             </div>
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-block bg-blue-600 text-white px-4 py-3 rounded-lg shadow hover:bg-blue-700 transition font-semibold"
-            >
-              📄 Download My Resume
-            </a>
-          </div>
-
-          {/* Right Side */}
-          <div className="space-y-8">
-            {/* Highlights */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 transition-colors duration-300">
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
-                Experience Highlights
-              </h3>
-              <div className="grid grid-cols-2 gap-6 text-center">
-                {highlights.map((item, i) => (
+            {/* Skills Progress */}
+            <div className="glass-card p-8 rounded-3xl">
+              <h3 className="text-xl font-bold mb-6 text-gray-800 dark:text-white">Technical Proficiency</h3>
+              <div className="space-y-6">
+                {coreSkills.map((skill, i) => (
                   <div key={i}>
-                    <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                      {item.value}
-                    </p>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">
-                      {item.label}
-                    </p>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{skill.skill}</span>
+                      <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{skill.level}%</span>
+                    </div>
+                    <div className="h-2 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                      <motion.div
+                        className="h-full premium-gradient"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Core Skills */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 transition-colors duration-300">
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
-                Core Backend Skills
-              </h3>
-              {coreSkills.map((skill, i) => (
-                <div key={i} className="mb-5">
-                  <p className="text-gray-700 dark:text-gray-300 mb-1 font-medium">{skill.skill}</p>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                    <motion.div
-                      className="bg-blue-600 h-3 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1 }}
-                    ></motion.div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
-    </section >
+    </section>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaEnvelope,
@@ -6,172 +6,201 @@ import {
   FaMapMarkerAlt,
   FaGithub,
   FaLinkedin,
-  FaTwitter,
-  FaDownload,
   FaWhatsapp,
+  FaPaperPlane,
+  FaCheckCircle,
+  FaExclamationCircle,
 } from "react-icons/fa";
 
 function Contact() {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    setStatus("loading");
+
+    try {
+      // NOTE: Replace 'muhammadsaifrehman.6987@gmail.com' with your actual Formspree ID
+      // You can get one at https://formspree.io/ by creating a free account.
+      const response = await fetch("https://formspree.io/f/xpwzjyyo", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+        setTimeout(() => setStatus(""), 5000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="contact" className="relative py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
 
         {/* Title */}
-        <motion.h2
-          className="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Let's <span className="text-blue-600 dark:text-blue-400">Connect</span>
-        </motion.h2>
-        <motion.p
-          className="text-center text-gray-600 dark:text-gray-300 mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          Open to freelance, remote, and full-time opportunities — feel free to reach out.
-        </motion.p>
-
-        {/* Grid layout */}
-        <div className="grid md:grid-cols-2 gap-10">
-
-          {/* Contact Form */}
-          <motion.div
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+        <div className="text-center mb-20">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white">Send me a message</h3>
-            <form className="space-y-5">
+            Let's <span className="text-gradient">Collaborate</span>
+          </motion.h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+            Have a project in mind or just want to chat? Reach out via any of the channels below.
+          </p>
+        </div>
 
-              <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">Your Name *</label>
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          {/* Left: Contact Info (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            {[
+              { icon: <FaEnvelope className="text-blue-500" />, label: "Email Me", val: "muhammadsaifrehman.6987@gmail.com", link: "mailto:muhammadsaifrehman.6987@gmail.com" },
+              { icon: <FaWhatsapp className="text-green-500" />, label: "WhatsApp Chat", val: "+92 308 3152045", link: "https://wa.me/923083152045" },
+              { icon: <FaPhone className="text-purple-500" />, label: "Call Me", val: "+92 308 3152045", link: "tel:+923083152045" },
+              { icon: <FaMapMarkerAlt className="text-red-500" />, label: "Location", val: "Lahore, Pakistan", link: null },
+            ].map((item, i) => (
+              <motion.a
+                key={i}
+                href={item.link}
+                target={item.link?.startsWith('http') ? "_blank" : "_self"}
+                rel="noreferrer"
+                className={`glass-card p-6 rounded-3xl flex items-center gap-6 group hover:border-blue-500/30 transition-all ${!item.link ? 'pointer-events-none' : ''}`}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="w-14 h-14 rounded-2xl bg-gray-50 dark:bg-gray-800 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-1">{item.label}</p>
+                  <p className="text-sm font-bold text-gray-800 dark:text-gray-100">{item.val}</p>
+                </div>
+              </motion.a>
+            ))}
+
+            {/* Social Bar */}
+            <div className="glass-card p-8 rounded-3xl">
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Connect across platforms</p>
+              <div className="flex gap-4">
+                {[
+                  { icon: <FaGithub />, link: "https://github.com/Saifrehmangetgroup" },
+                  { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/muhammad-saif-urrehman" },
+                ].map((soc, i) => (
+                  <a
+                    key={i}
+                    href={soc.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-12 h-12 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center text-xl hover:premium-gradient hover:text-white transition-all shadow-xl"
+                  >
+                    {soc.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Contact Form (7 cols) */}
+          <motion.div
+            className="lg:col-span-7 glass-card p-10 rounded-[2.5rem] relative overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 blur-3xl" />
+
+            <h3 className="text-2xl font-bold mb-8 text-gray-800 dark:text-white">Write a Message</h3>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
+                  <input
+                    required
+                    name="name"
+                    type="text"
+                    placeholder="John Doe"
+                    className="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 outline-none focus:border-blue-500 transition-colors text-gray-800 dark:text-white text-sm"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Email</label>
+                  <input
+                    required
+                    name="email"
+                    type="email"
+                    placeholder="john@example.com"
+                    className="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 outline-none focus:border-blue-500 transition-colors text-gray-800 dark:text-white text-sm"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Subject</label>
                 <input
+                  required
+                  name="subject"
                   type="text"
-                  placeholder="John Doe"
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                  required
+                  placeholder="Project Inquiry"
+                  className="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 outline-none focus:border-blue-500 transition-colors text-gray-800 dark:text-white text-sm"
                 />
               </div>
 
-              <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">Email Address *</label>
-                <input
-                  type="email"
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">Subject *</label>
-                <input
-                  type="text"
-                  placeholder="Collaboration or project"
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">Message *</label>
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Message</label>
                 <textarea
+                  required
+                  name="message"
                   rows="5"
                   placeholder="Tell me about your project..."
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                  required
+                  className="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 outline-none focus:border-blue-500 transition-colors text-gray-800 dark:text-white text-sm resize-none"
                 ></textarea>
               </div>
 
-              <motion.button
+              <button
+                disabled={status === "loading"}
                 type="submit"
-                className="w-full flex items-center justify-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className={`w-full premium-gradient text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed`}
               >
-                <FaEnvelope className="mr-2" /> Send Message
-              </motion.button>
+                {status === "loading" ? (
+                  "Sending Message..."
+                ) : status === "success" ? (
+                  <>Message Sent Successfully! <FaCheckCircle /></>
+                ) : status === "error" ? (
+                  <>Failed to Send <FaExclamationCircle /></>
+                ) : (
+                  <>Send Message <FaPaperPlane /></>
+                )}
+              </button>
+
+              {status === "success" && (
+                <p className="text-center text-green-500 text-xs font-bold animate-bounce mt-4">
+                  Thank you! I'll get back to you shortly.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-center text-red-500 text-xs font-bold mt-4">
+                  Something went wrong. Please try again or use WhatsApp.
+                </p>
+              )}
             </form>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            className="p-8 flex flex-col justify-between"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white">Get in touch</h3>
-
-            <div className="space-y-5">
-              <div className="flex items-center space-x-4">
-                <FaEnvelope className="text-blue-600 dark:text-blue-400 text-xl" />
-                <a
-                  href="mailto:muhammadsaifrehman.6987@gmail.com"
-                  className="text-gray-700 dark:text-gray-300 hover:underline"
-                >
-                  muhammadsaifrehman.6987@gmail.com
-                </a>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <FaPhone className="text-purple-600 text-xl" />
-                <a href="tel:+923083152045" className="text-gray-700 dark:text-gray-300 font-semibold">
-                  +92 3083152045
-                </a>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <FaWhatsapp className="text-green-500 text-xl" />
-                <a
-                  href="https://wa.me/923083152045"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-gray-700 dark:text-gray-300 hover:underline"
-                >
-                  WhatsApp Chat
-                </a>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <FaMapMarkerAlt className="text-red-500 text-xl" />
-                <span className="text-gray-700 dark:text-gray-300">Lahore, Pakistan</span>
-              </div>
-            </div>
-
-            {/* Social Icons */}
-            <div className="mt-8">
-              <p className="font-medium mb-3 text-gray-800 dark:text-white">Social</p>
-              <div className="flex space-x-4">
-                <a href="https://github.com/Saifrehmangetgroup" target="_blank" rel="noreferrer">
-                  <FaGithub className="text-gray-700 dark:text-gray-300 text-2xl hover:text-black dark:hover:text-white transition" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/muhammad-saif-urrehman"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaLinkedin className="text-blue-600 dark:text-blue-400 text-2xl hover:text-blue-800 dark:hover:text-blue-300 transition" />
-                </a>
-
-              </div>
-            </div>
-
-            {/* Resume Button */}
-            <div className="mt-8">
-              <a
-                href="/resume.pdf"
-                download
-                className="w-full flex items-center justify-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-              >
-                <FaDownload className="mr-2" /> Download Resume (PDF)
-              </a>
-            </div>
           </motion.div>
         </div>
       </div>
