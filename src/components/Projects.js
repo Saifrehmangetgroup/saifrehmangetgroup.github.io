@@ -5,59 +5,84 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 function Projects() {
   const projects = [
     {
-      title: "Raabta (Official PTI App)",
-      description:
-        "Engineered the backend infrastructure serving over 1M+ users, including secure APIs, authentication, and AWS scaling optimizations for nationwide uptime.",
-      tech: ["Laravel", "MySQL", "AWS", "Redis"],
+      title: "Raabta — National Scale Mobile Platform",
+      subtitle: "Official PTI Application (1M+ Users)",
+      description: "Engineered the backend infrastructure serving over 1M+ users, including secure APIs, authentication, and AWS scaling optimizations for nationwide uptime.",
+      impact: "Maintained 99.9% uptime during high-traffic political campaigns.",
+      tech: ["Laravel", "MySQL", "AWS", "Redis", "Queues"],
       link: "https://ptiraabta.pk",
       image: "/ptiraabta.png",
-      tag: "Government"
+      tag: "Government",
+      featured: true
     },
     {
-      title: "Linkon.social",
-      description:
-        "Built the backend services and admin architecture for a social platform, including private messaging and media storage, with optimized routing.",
-      tech: ["CI4", "MySQL", "REST APIs"],
+      title: "Linkon.social — Private Social Platform",
+      subtitle: "Media & Messaging System",
+      description: "Built the backend services and admin architecture for a social platform, including private messaging, media storage, and role-based moderation with optimized routing.",
+      impact: "Improved API response time by 35%.",
+      tech: ["CodeIgniter 4", "MySQL", "REST APIs"],
       link: "https://linkon.social",
       image: "/linkon.png",
       tag: "Social Media"
     },
     {
-      title: "Ingage.gg",
-      description:
-        "Developed tournament management APIs for real-time gaming events, including user authentication, match tracking, and scalable game logic.",
+      title: "Ingage.gg — Esports Tournament Platform",
+      subtitle: "Real-Time Competition Management",
+      description: "Built tournament management APIs supporting live match tracking, user authentication, and scalable game workflows for competitive gaming events.",
+      impact: "Enabled simultaneous tournaments with thousands of participants.",
       tech: ["Laravel", "MySQL", "Web APIs"],
       link: "https://ingage.gg",
       image: "/ingage.png",
       tag: "Gaming"
     },
     {
-      title: "Jobson",
-      description:
-        "Engineered a comprehensive job portal with advanced search, applicant tracking, and recruiter dashboards using Laravel and MySQL.",
+      title: "Hiphop — Short Video Platform",
+      subtitle: "High-Volume Media Streaming",
+      description: "Designed and optimized a TikTok-style media pipeline including video processing, feed ranking algorithms, and low-latency streaming infrastructure.",
+      impact: "Reduced media load times by 40%.",
+      tech: ["Laravel", "MySQL", "Media Streaming"],
+      link: "https://hiphop.socioon.com",
+      image: "/hiphop.png",
+      tag: "Entertainment"
+    },
+    {
+      title: "Club92 — Live Audio Platform",
+      subtitle: "Real-Time Voice Communication",
+      description: "Architected a live audio streaming backend with WebRTC integration, channel management, and role-based participation for interactive sessions.",
+      impact: "Supported thousands of concurrent listeners.",
+      tech: ["Laravel", "MySQL", "WebRTC", "Redis"],
+      link: "https://club92.socioon.com",
+      image: "/club92.png",
+      tag: "Streaming"
+    },
+    {
+      title: "Jobson — Career Portal",
+      description: "Engineered a comprehensive job portal with advanced search, applicant tracking, and recruiter dashboards using Laravel and MySQL.",
       tech: ["Laravel", "MySQL", "ATS"],
       link: "https://jobson.pk",
       image: "/jobson.png",
       tag: "Recruitment"
     },
     {
-      title: "PropertyOn",
-      description:
-        "Developed a real estate management system featuring property listings, lead management, and automated client notifications.",
-      tech: ["Laravel", "MySQL", "Real Estate"],
-      link: "https://propertyon.com",
-      image: "/propertyon.png",
-      tag: "Real Estate"
+      title: "Gtcree — E-Commerce Platform",
+      subtitle: "High-Performance Online Store",
+      description: "Developed a full-featured e-commerce backend with inventory management, secure checkout, role-based access, and optimized product search.",
+      impact: "Increased conversion rate through faster checkout.",
+      tech: ["Laravel", "MySQL", "E-commerce", "Caching"],
+      link: "https://gtcree.com",
+      image: "/gtcree.png",
+      tag: "E-commerce"
     },
     {
-      title: "Club92",
-      description:
-        "Built a scalable live-audio streaming backend with WebRTC integrations, channel management, role-based participation, and real-time communication.",
-      tech: ["Laravel", "WebRTC", "Redis"],
-      link: "https://club92.socioon.com",
-      image: "/club92.png",
-      tag: "Streaming"
-    },
+      title: "Bracktix — Tournament Management",
+      subtitle: "Competitive Bracketing Engine",
+      description: "Implemented scalable tournament APIs with advanced bracket logic, authentication layers, and real-time match updates.",
+      impact: "Reduced system errors by 50% during peak events.",
+      tech: ["Laravel", "Redis", "MySQL", "Sanctum"],
+      link: "https://bracktix.sadacode.com",
+      image: "/bracktix.png",
+      tag: "Gaming"
+    }
   ];
 
   return (
@@ -75,7 +100,7 @@ function Projects() {
               Featured <span className="text-gradient">Projects</span>
             </motion.h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg">
-              A collection of systems I've architected, focusing on performance, security, and user experience at scale.
+              A selection of production systems I’ve designed, scaled, and maintained for high-traffic platforms and growing businesses.
             </p>
           </div>
           <motion.div
@@ -98,7 +123,7 @@ function Projects() {
           {projects.map((proj, index) => (
             <motion.div
               key={index}
-              className="group relative flex flex-col glass-card rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500"
+              className={`group relative flex flex-col glass-card rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 ${proj.featured ? 'ring-2 ring-blue-500/20' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -114,21 +139,38 @@ function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Tag Overlay */}
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 flex gap-2">
                   <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-gray-900/90 text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 shadow-xl">
                     {proj.tag}
                   </span>
+                  {proj.featured && (
+                    <span className="px-3 py-1 rounded-full bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest shadow-xl">
+                      Featured
+                    </span>
+                  )}
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {proj.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+                <div className="mb-3">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {proj.title}
+                  </h3>
+                  {proj.subtitle && (
+                    <p className="text-xs font-bold text-blue-500/80 dark:text-blue-400/80 uppercase tracking-widest">{proj.subtitle}</p>
+                  )}
+                </div>
+
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 flex-1">
                   {proj.description}
                 </p>
+
+                {proj.impact && (
+                  <p className="text-[11px] text-green-600 dark:text-green-400 font-bold mb-6 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" /> {proj.impact}
+                  </p>
+                )}
 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-8">

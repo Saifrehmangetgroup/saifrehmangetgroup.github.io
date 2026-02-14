@@ -4,28 +4,29 @@ import { FaRocket, FaServer, FaCode, FaShieldAlt } from "react-icons/fa";
 
 function About() {
   const highlights = [
-    { label: "Backend Experience", value: "6+ Years", icon: <FaCode /> },
-    { label: "Systems Scaled", value: "1M+ Users", icon: <FaRocket /> },
-    { label: "Cloud Deployments", value: "AWS / DO / GCP", icon: <FaServer /> },
-    { label: "Security Focused", value: "OAuth / JWT", icon: <FaShieldAlt /> },
+    { label: "Years Experience", value: "6+", icon: <FaCode /> },
+    { label: "Systems Scaled", value: "1M+", icon: <FaRocket /> },
+    { label: "Cloud Platforms", value: "AWS • DO • GCP", icon: <FaServer /> },
+    { label: "Projects Done", value: "20+", icon: <FaShieldAlt /> },
   ];
 
   const coreSkills = [
-    { skill: "Laravel / PHP — Advanced", level: 95 },
-    { skill: "API Architecture & Authentication", level: 90 },
-    { skill: "MySQL / Query Optimization", level: 90 },
-    { skill: "Redis / Queues / Caching", level: 85 },
-    { skill: "Microservices Architecture", level: 85 },
-    { skill: "DevOps / CI-CD / Linux", level: 80 },
+    { skill: "Laravel & PHP Architecture", level: 95 },
+    { skill: "REST APIs & Auth Systems", level: 92 },
+    { skill: "Database Design & Optimization", level: 90 },
+    { skill: "Redis, Queues & Caching", level: 88 },
+    { skill: "Scalable System Architecture", level: 85 },
+    { skill: "DevOps, CI/CD & Linux", level: 82 },
+    { skill: "Node.js & Microservices", level: 75 },
   ];
 
   const services = [
-    "Scalable API Development",
-    "Microservices Architecture",
-    "Cloud Hosting & Deployment",
+    "High-Performance API Development",
+    "SaaS & Multi-Tenant Systems",
+    "Secure Payment Integrations",
+    "Cloud Infrastructure & Deployment",
     "Database Optimization",
-    "Backend Security & Auth",
-    "System Performance",
+    "System Scaling & Monitoring",
   ];
 
   return (
@@ -64,8 +65,16 @@ function About() {
                 I am a <span className="text-gray-900 dark:text-white font-semibold">Senior Backend Engineer</span> dedicated to crafting high-performance, resilient infrastructures. With a focus on <span className="text-blue-600 dark:text-blue-400 font-medium italic">distributed systems</span> and <span className="text-blue-600 dark:text-blue-400 font-medium italic">secure API design</span>, I help businesses scale their digital footprint.
               </p>
 
-              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-                Over the past 6 years, I've transitioned from building complex monolithic applications to designing microservices that serve over <span className="font-bold text-gray-900 dark:text-white">1 million active users</span>. I thrive on solving database bottlenecks and optimizing server-side latency.
+              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                Over the past 6+ years, I’ve helped companies launch and scale digital products serving more than <span className="font-semibold text-blue-600 dark:text-blue-400">1 million+ users</span> — ensuring reliability, security, and long-term maintainability.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+                How I Add Value
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
+                I approach backend development from a business-first perspective. My focus is not just writing code, but designing systems that reduce operational costs, prevent downtime, and scale smoothly as your product grows.
               </p>
             </div>
 
@@ -81,6 +90,18 @@ function About() {
                   </p>
                 </div>
               ))}
+            </div>
+
+            {/* CTA */}
+            <div className="pt-4">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-2xl shadow-lg hover:bg-blue-700 hover:shadow-blue-500/20 transition-all font-bold"
+              >
+                📄 Download Resume
+              </a>
             </div>
           </motion.div>
 

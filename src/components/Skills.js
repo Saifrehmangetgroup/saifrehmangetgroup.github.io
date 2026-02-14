@@ -11,7 +11,6 @@ import {
   SiMongodb,
   SiNextdotjs,
   SiExpress,
-  SiBootstrap,
   SiTailwindcss,
   SiAmazonwebservices,
   SiRedis,
@@ -19,6 +18,7 @@ import {
   SiLinux,
   SiPostgresql,
   SiDocker,
+  SiBitbucket,
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
@@ -41,51 +41,53 @@ function Skills() {
 
   const categories = [
     {
-      title: "Backend Core",
-      desc: "Architecting robust and efficient server-side logic",
+      title: "Backend Engineering",
+      desc: "Architecting reliable, secure, and production-grade infrastructures",
       skills: [
-        { name: "Laravel", icon: <FaLaravel className="text-red-500" /> },
-        { name: "PHP", icon: <FaPhp className="text-blue-500" /> },
+        { name: "Laravel (Advanced)", icon: <FaLaravel className="text-red-500" /> },
+        { name: "PHP (OOP/SOLID)", icon: <FaPhp className="text-blue-500" /> },
         { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
         { name: "Express.js", icon: <SiExpress className="text-gray-400" /> },
         { name: "Microservices", icon: <AiOutlineDeploymentUnit className="text-indigo-400" /> },
       ],
     },
     {
-      title: "Data & Caching",
-      desc: "Managing data persistence and high-speed retrieval",
+      title: "Data & Systems",
+      desc: "Optimizing persistence layers and high-speed data flow",
       skills: [
-        { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
-        { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-300" /> },
-        { name: "Redis", icon: <SiRedis className="text-red-600" /> },
+        { name: "MySQL / Postgres", icon: <SiMysql className="text-blue-400" /> },
+        { name: "Redis / Caching", icon: <SiRedis className="text-red-600" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+        { name: "Queue Workers", icon: <SiRedis className="text-orange-500" /> },
+        { name: "Database Design", icon: <SiPostgresql className="text-blue-300" /> },
       ],
     },
     {
-      title: "Cloud & Reliability",
-      desc: "Deploying and maintaining production-grade infrastructure",
+      title: "Cloud & DevOps",
+      desc: "Scaling and monitoring production ecosystems",
       skills: [
-        { name: "AWS", icon: <SiAmazonwebservices className="text-yellow-500" /> },
+        { name: "AWS Cloud", icon: <SiAmazonwebservices className="text-yellow-500" /> },
         { name: "Docker", icon: <SiDocker className="text-blue-500" /> },
-        { name: "Nginx", icon: <SiNginx className="text-green-500" /> },
-        { name: "CI/CD", icon: <FaGitAlt className="text-orange-600" /> },
-        { name: "Linux", icon: <SiLinux className="text-gray-300" /> },
+        { name: "Nginx / Load Balance", icon: <SiNginx className="text-green-500" /> },
+        { name: "CI/CD Pipelines", icon: <FaGitAlt className="text-orange-600" /> },
+        { name: "Linux Admin", icon: <SiLinux className="text-gray-300" /> },
       ],
     },
     {
-      title: "Full-Stack Bridge",
-      desc: "Collaborating with frontend teams effectively",
+      title: "Universal Bridge",
+      desc: "Modern tools and collaborative engineering workflows",
       skills: [
-        { name: "React", icon: <FaReact className="text-blue-400" /> },
-        { name: "Next.js", icon: <SiNextdotjs className="text-white bg-black rounded-full" /> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
-        { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
+        { name: "React / Next.js", icon: <FaReact className="text-blue-400" /> },
+        { name: "Tailwind / CSS3", icon: <SiTailwindcss className="text-teal-400" /> },
+        { name: "REST APIs / OAuth", icon: <SiPostman className="text-orange-500" /> },
+        { name: "Version Control", icon: <SiBitbucket className="text-blue-600" /> },
+        { name: "Figma (UI/UX)", icon: <SiFigma className="text-pink-500" /> },
       ],
     },
   ];
 
   return (
-    <section id="skills" className="relative py-24 bg-gray-50/50 dark:bg-transparent">
+    <section id="skills" className="relative py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Title */}
         <div className="text-center mb-20">
@@ -98,7 +100,7 @@ function Skills() {
             Technical <span className="text-gradient">Powerhouse</span>
           </motion.h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            A comprehensive suite of technologies I've mastered to ship scalable, production-ready applications.
+            A production-focused engineering skill set built through years of designing, deploying, and scaling real-world systems.
           </p>
         </div>
 
@@ -138,7 +140,7 @@ function Skills() {
                     <span className="text-4xl transition-transform group-hover/skill:scale-110 duration-300">
                       {skill.icon}
                     </span>
-                    <span className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-tighter">
+                    <span className="text-[10px] font-bold text-gray-700 dark:text-gray-300 uppercase tracking-widest text-center">
                       {skill.name}
                     </span>
                   </motion.div>

@@ -5,10 +5,10 @@ import { FaBriefcase, FaGraduationCap, FaMapMarkerAlt, FaCalendarAlt } from "rea
 function Experience() {
   const work = [
     {
-      role: "Senior PHP Web Developer",
+      role: "Senior Backend Engineer (Laravel / PHP)",
       company: "Socioon",
       location: "Lahore, Pakistan",
-      type: "Full Time",
+      type: "Full-Time",
       date: "Aug 2023 – Present",
       bullets: [
         "Architected scalable backend infrastructures serving millions of concurrent web socket connections.",
@@ -18,10 +18,10 @@ function Experience() {
       ]
     },
     {
-      role: "Web Developer (Laravel Developer)",
+      role: "Backend Engineer (Laravel)",
       company: "Virtuenetz",
       location: "Rahim Yar Khan, Pakistan",
-      type: "Full Time",
+      type: "Full-Time",
       date: "Jan 2022 – Aug 2023",
       bullets: [
         "Developed custom RESTful APIs for diverse client industries, ensuring high security and performance.",
@@ -30,10 +30,10 @@ function Experience() {
       ]
     },
     {
-      role: "Web Developer (PHP / Laravel)",
+      role: "Junior to Mid-Level Backend Developer (PHP / Laravel)",
       company: "Dexdevs",
       location: "Rahim Yar Khan, Pakistan",
-      type: "Full Time",
+      type: "Full-Time",
       date: "Aug 2018 – Dec 2021",
       bullets: [
         "Engineered web applications from scratch using Laravel and CodeIgniter frameworks.",
