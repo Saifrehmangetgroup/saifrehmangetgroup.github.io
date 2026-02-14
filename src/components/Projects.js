@@ -192,16 +192,9 @@ function Projects() {
                     rel="noreferrer"
                     className="flex-1 inline-flex items-center justify-center gap-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3 rounded-xl text-sm font-bold hover:premium-gradient hover:text-white transition-all shadow-lg"
                   >
-                    View Case Study <FaExternalLinkAlt className="text-xs" />
+                    View Project <FaExternalLinkAlt className="text-xs" />
                   </a>
-                  <a
-                    href="https://github.com/Saifrehmangetgroup"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-12 h-12 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded-xl hover:border-blue-500 transition-colors text-gray-600 dark:text-gray-400"
-                  >
-                    <FaGithub />
-                  </a>
+                  
                 </div>
               </div>
             </motion.div>
