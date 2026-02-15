@@ -117,12 +117,12 @@ function Hero() {
           <div className="absolute inset-0 border-[1px] border-blue-500/20 rounded-full animate-[spin_20s_linear_infinite]" />
           <div className="absolute -inset-4 border-[1px] border-indigo-500/10 rounded-full animate-[spin_30s_linear_infinite_reverse]" />
 
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl rotate-6 overflow-hidden shadow-2xl group hover:rotate-0 transition-all duration-500 border-4 border-white dark:border-gray-800">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden shadow-2xl group transition-all duration-500 border-4 border-white dark:border-gray-800">
             <div className="absolute inset-0 bg-blue-500/10 group-hover:opacity-0 transition-opacity z-10" />
             <img
               src={profileImg}
               alt="Saif Ur Rehman"
-              className="w-full h-full object-cover -rotate-6 group-hover:rotate-0 transition-all duration-500 scale-110"
+              className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
             />
           </div>
 

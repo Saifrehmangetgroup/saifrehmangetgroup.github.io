@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 function Projects() {
   const projects = [
@@ -54,14 +54,6 @@ function Projects() {
       link: "https://club92.socioon.com",
       image: "/club92.png",
       tag: "Streaming"
-    },
-    {
-      title: "Jobson — Career Portal",
-      description: "Engineered a comprehensive job portal with advanced search, applicant tracking, and recruiter dashboards using Laravel and MySQL.",
-      tech: ["Laravel", "MySQL", "ATS"],
-      link: "https://jobson.pk",
-      image: "/jobson.png",
-      tag: "Recruitment"
     },
     {
       title: "Gtcree — E-Commerce Platform",
@@ -119,82 +111,79 @@ function Projects() {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((proj, index) => (
             <motion.div
               key={index}
-              className={`group relative flex flex-col glass-card rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 ${proj.featured ? 'ring-2 ring-blue-500/20' : ''}`}
+              className="group relative bg-[#ffffff]/60 dark:bg-gray-800/40 backdrop-blur-xl border border-white/40 dark:border-gray-700/50 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-700 hover:-translate-y-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Image Container */}
-              <div className="relative h-56 overflow-hidden">
+              {/* Image & Overlay */}
+              <div className="relative h-60 overflow-hidden">
                 <img
                   src={proj.image}
                   alt={proj.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                  <div className="flex gap-4">
+                    {proj.tech.slice(0, 3).map((t, i) => (
+                      <span key={i} className="text-[10px] font-black text-white px-3 py-1 bg-white/20 backdrop-blur-md rounded-full uppercase tracking-widest">{t}</span>
+                    ))}
+                  </div>
+                </div>
 
-                {/* Tag Overlay */}
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-gray-900/90 text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 shadow-xl">
+                {/* Status Tags */}
+                <div className="absolute top-6 left-6 flex gap-2">
+                  <span className="px-4 py-1.5 rounded-full bg-white/90 dark:bg-gray-900/90 text-[9px] font-black uppercase tracking-[0.15em] text-blue-600 dark:text-blue-400 shadow-2xl backdrop-blur-md">
                     {proj.tag}
                   </span>
                   {proj.featured && (
-                    <span className="px-3 py-1 rounded-full bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest shadow-xl">
+                    <span className="px-4 py-1.5 rounded-full bg-blue-600 text-white text-[9px] font-black uppercase tracking-[0.15em] shadow-2xl">
                       Featured
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-8 flex flex-col flex-1">
-                <div className="mb-3">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              {/* Content Area */}
+              <div className="p-8 pt-10 relative">
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2 leading-tight group-hover:text-blue-600 transition-colors">
                     {proj.title}
                   </h3>
                   {proj.subtitle && (
-                    <p className="text-xs font-bold text-blue-500/80 dark:text-blue-400/80 uppercase tracking-widest">{proj.subtitle}</p>
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-[2px] bg-blue-500 rounded-full" />
+                      <p className="text-[10px] font-black text-blue-500/80 uppercase tracking-widest">{proj.subtitle}</p>
+                    </div>
                   )}
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-8 line-clamp-3">
                   {proj.description}
                 </p>
 
-                {proj.impact && (
-                  <p className="text-[11px] text-green-600 dark:text-green-400 font-bold mb-6 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" /> {proj.impact}
-                  </p>
-                )}
+                <div className="flex items-center justify-between border-t border-gray-100 dark:border-gray-700/50 pt-8 mt-auto">
+                  <div className="flex -space-x-3">
+                    {proj.tech.map((t, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800 border-2 border-white dark:border-gray-900 flex items-center justify-center text-[8px] font-bold text-gray-500 dark:text-gray-400 uppercase cursor-default hover:z-10 hover:-translate-y-1 transition-all" title={t}>
+                        {t.charAt(0)}
+                      </div>
+                    ))}
+                  </div>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {proj.tech.map((t, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] font-bold px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 uppercase tracking-tighter"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex items-center gap-4">
                   <a
                     href={proj.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3 rounded-xl text-sm font-bold hover:premium-gradient hover:text-white transition-all shadow-lg"
+                    className="w-12 h-12 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-all shadow-lg active:scale-90"
                   >
-                    View Project <FaExternalLinkAlt className="text-xs" />
+                    <FaExternalLinkAlt className="text-sm" />
                   </a>
-                  
                 </div>
               </div>
             </motion.div>

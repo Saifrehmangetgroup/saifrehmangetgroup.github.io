@@ -116,32 +116,43 @@ function About() {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-4">
               {highlights.map((item, i) => (
-                <div key={i} className="glass-card p-6 rounded-2xl text-center">
-                  <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-600 dark:text-blue-400 mx-auto mb-3 text-xl">
+                <div key={i} className="glass-card p-6 rounded-2xl text-center group hover:border-blue-500/30 transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-600 dark:text-blue-400 mx-auto mb-4 text-xl group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
-                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{item.value}</p>
-                  <p className="text-[10px] uppercase tracking-widest font-bold text-gray-500 mt-1">{item.label}</p>
+                  <p className={`font-bold text-gray-900 dark:text-white leading-tight ${item.value.length > 10 ? 'text-sm mb-2' : 'text-2xl mb-1'}`}>
+                    {item.value}
+                  </p>
+                  <p className="text-[10px] uppercase tracking-widest font-bold text-gray-500">{item.label}</p>
                 </div>
               ))}
             </div>
 
-            {/* Skills Progress */}
-            <div className="glass-card p-8 rounded-3xl">
-              <h3 className="text-xl font-bold mb-6 text-gray-800 dark:text-white">Technical Proficiency</h3>
-              <div className="space-y-6">
+            {/* Technical Proficiency Redesign */}
+            <div className="glass-card p-8 rounded-3xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-indigo-600 opacity-50" />
+              <h3 className="text-xl font-bold mb-8 text-gray-800 dark:text-white flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                Technical Power
+              </h3>
+              <div className="space-y-8">
                 {coreSkills.map((skill, i) => (
-                  <div key={i}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{skill.skill}</span>
-                      <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{skill.level}%</span>
+                  <div key={i} className="relative">
+                    <div className="flex justify-between items-end mb-3">
+                      <div className="space-y-1">
+                        <span className="text-xs font-black uppercase tracking-tighter text-gray-400 dark:text-gray-500">Expertise Level</span>
+                        <p className="text-sm font-bold text-gray-800 dark:text-gray-200">{skill.skill}</p>
+                      </div>
+                      <span className="text-sm font-black text-blue-600 dark:text-blue-400 bg-blue-500/10 px-2 py-1 rounded-lg">
+                        {skill.level}%
+                      </span>
                     </div>
-                    <div className="h-2 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div className="h-1.5 w-full bg-gray-100 dark:bg-gray-800/50 rounded-full overflow-hidden">
                       <motion.div
-                        className="h-full premium-gradient"
+                        className="h-full bg-gradient-to-r from-blue-600 to-indigo-500 shadow-[0_0_15px_rgba(37,99,235,0.4)]"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: 0.2 }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
                         viewport={{ once: true }}
                       />
                     </div>

@@ -3,13 +3,9 @@ import { motion } from "framer-motion";
 import { FaReact, FaPhp, FaLaravel, FaNodeJs, FaGitAlt } from "react-icons/fa";
 import {
   SiMysql,
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
   SiPostman,
   SiFigma,
   SiMongodb,
-  SiNextdotjs,
   SiExpress,
   SiTailwindcss,
   SiAmazonwebservices,
@@ -20,7 +16,6 @@ import {
   SiDocker,
   SiBitbucket,
 } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
 
 function Skills() {
