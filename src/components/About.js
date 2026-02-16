@@ -114,19 +114,7 @@ function About() {
             transition={{ duration: 0.6 }}
           >
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {highlights.map((item, i) => (
-                <div key={i} className="glass-card p-6 rounded-2xl text-center group hover:border-blue-500/30 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-600 dark:text-blue-400 mx-auto mb-4 text-xl group-hover:scale-110 transition-transform">
-                    {item.icon}
-                  </div>
-                  <p className={`font-bold text-gray-900 dark:text-white leading-tight ${item.value.length > 10 ? 'text-sm mb-2' : 'text-2xl mb-1'}`}>
-                    {item.value}
-                  </p>
-                  <p className="text-[10px] uppercase tracking-widest font-bold text-gray-500">{item.label}</p>
-                </div>
-              ))}
-            </div>
+
 
             {/* Technical Proficiency Redesign */}
             <div className="glass-card p-8 rounded-3xl relative overflow-hidden group">
@@ -162,6 +150,43 @@ function About() {
             </div>
           </motion.div>
         </div>
+
+        {/* Stats Grid - Full Width */}
+        <motion.div
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* 6+ Years Experience */}
+          <div className="glass-card p-6 rounded-2xl text-center hover:border-blue-500/50 transition-all group">
+            <div className="text-4xl mb-3">💼</div>
+            <p className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">6+</p>
+            <p className="text-[10px] uppercase font-bold tracking-wider text-gray-500 dark:text-gray-400">Years Experience</p>
+          </div>
+
+          {/* 1M+ Systems Scaled */}
+          <div className="glass-card p-6 rounded-2xl text-center hover:border-blue-500/50 transition-all group">
+            <div className="text-4xl mb-3">🚀</div>
+            <p className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">1M+</p>
+            <p className="text-[10px] uppercase font-bold tracking-wider text-gray-500 dark:text-gray-400">Systems Scaled</p>
+          </div>
+
+          {/* Cloud Platforms */}
+          <div className="glass-card p-6 rounded-2xl text-center hover:border-blue-500/50 transition-all group">
+            <div className="text-4xl mb-3">☁️</div>
+            <p className="text-sm font-extrabold text-blue-600 dark:text-blue-400 mb-1">AWS • DO • GCP</p>
+            <p className="text-[10px] uppercase font-bold tracking-wider text-gray-500 dark:text-gray-400">Cloud Platforms</p>
+          </div>
+
+          {/* 20+ Projects */}
+          <div className="glass-card p-6 rounded-2xl text-center hover:border-blue-500/50 transition-all group">
+            <div className="text-4xl mb-3">🛡️</div>
+            <p className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">20+</p>
+            <p className="text-[10px] uppercase font-bold tracking-wider text-gray-500 dark:text-gray-400">Projects Done</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

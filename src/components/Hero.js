@@ -125,12 +125,6 @@ function Hero() {
               className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
             />
           </div>
-
-          {/* Experience Badge */}
-          <div className="absolute -bottom-6 -right-6 glass-card px-6 py-4 rounded-2xl shadow-xl z-20">
-            <p className="text-3xl font-extrabold text-blue-600 dark:text-blue-400">6+</p>
-            <p className="text-[10px] uppercase font-bold tracking-widest text-gray-500 dark:text-gray-400">Years Experience</p>
-          </div>
         </motion.div>
       </div>
     </section>
