@@ -41,7 +41,7 @@ function Hero() {
             transition={{ duration: 0.6 }}
           >
             Hi, I'm <br />
-            <span className="text-gradient">Saif Ur Rehman</span>
+            <span className="text-gradient">Muhammad Saif Ur Rehman</span>
           </motion.h2>
 
           <motion.div
@@ -121,7 +121,7 @@ function Hero() {
             <div className="absolute inset-0 bg-blue-500/10 group-hover:opacity-0 transition-opacity z-10" />
             <img
               src={profileImg}
-              alt="Saif Ur Rehman"
+              alt="Muhammad Saif Ur Rehman"
               className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
             />
           </div>

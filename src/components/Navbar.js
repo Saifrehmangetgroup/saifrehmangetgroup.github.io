@@ -11,7 +11,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
         {/* Logo / Name */}
         <h1 className="text-xl font-extrabold tracking-tighter text-gray-900 dark:text-white group cursor-default">
-          Saif<span className="text-blue-600 dark:text-blue-400 group-hover:text-indigo-500 transition-colors">.Architect</span>
+          M. Saif <span className="text-blue-600 dark:text-blue-400 group-hover:text-indigo-500 transition-colors">Ur Rehman</span>
         </h1>
 
         {/* Desktop Menu */}
