@@ -16,6 +16,16 @@ function Projects() {
       featured: true
     },
     {
+      title: "HiveComms — Social Media Automation Platform",
+      subtitle: "Account Integration & Publishing System",
+      description: "Developed the backend architecture for a social media automation platform where users can connect multiple social accounts and publish posts directly from a centralized dashboard. Implemented secure account integrations, scheduling-ready posting APIs, and scalable service architecture.",
+      impact: "Enabled centralized multi-platform posting with secure API integrations and optimized backend performance.",
+      tech: ["Node.js", "Express.js", "PostgreSQL", "REST APIs"],
+      link: "https://hivecomms.app/",
+      image: "/hivecomms.png",
+      tag: "Social Media Automation"
+    },
+    {
       title: "Linkon.social — Private Social Platform",
       subtitle: "Media & Messaging System",
       description: "Built the backend services and admin architecture for a social platform, including private messaging, media storage, and role-based moderation with optimized routing.",
@@ -75,6 +85,7 @@ function Projects() {
       image: "/bracktix.png",
       tag: "Gaming"
     }
+
   ];
 
   return (
