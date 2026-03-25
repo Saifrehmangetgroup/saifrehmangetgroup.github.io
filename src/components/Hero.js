@@ -64,7 +64,7 @@ function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Web Developer • Laravel Expert • API Specialist
+            Web Developer • Laravel & Node.js Specialist • API Specialist
           </motion.div>
 
           {/* DESCRIPTION */}

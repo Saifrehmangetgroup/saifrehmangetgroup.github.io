@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBriefcase, FaGraduationCap, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+import {  FaGraduationCap, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 
 function Experience() {
   const work = [
