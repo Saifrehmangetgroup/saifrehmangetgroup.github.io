@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FaEnvelope,
   FaPhone,
@@ -7,9 +7,13 @@ import {
   FaGithub,
   FaLinkedin,
   FaWhatsapp,
+  FaUser,
+  FaPaperPlane,
 } from "react-icons/fa";
 
 function Contact() {
+  const [open, setOpen] = useState(false);
+
   const contactMethods = [
     {
       icon: <FaEnvelope className="text-blue-500" />,
@@ -45,102 +49,154 @@ function Contact() {
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
       
-      {/* Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px]" />
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px]" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* TITLE */}
+        {/* Title */}
         <div className="text-center mb-16">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
           >
             Let’s Build Something <span className="text-gradient">Great Together</span>
           </motion.h2>
 
           <motion.p
-            className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed"
+            className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            viewport={{ once: true }}
           >
-            Have a project in mind or need a high-performing website or backend system? 
-            I’m here to help you build fast, scalable, and reliable solutions for your business.
+            Have a project in mind? Let’s create something amazing.
           </motion.p>
         </div>
 
-        {/* CONTACT GRID */}
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {contactMethods.map((item, i) => (
-              <motion.a
-                key={i}
-                href={item.link}
-                target={item.link?.startsWith("http") ? "_blank" : "_self"}
-                rel="noreferrer"
-                className={`glass-card p-8 rounded-[2rem] flex items-center gap-6 group transition-all duration-500 ${
-                  !item.link
-                    ? "pointer-events-none"
-                    : "hover:shadow-xl hover:-translate-y-1 hover:border-blue-500/30"
-                }`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gray-50 dark:bg-gray-800 flex items-center justify-center text-2xl group-hover:scale-110 transition-all duration-300">
-                  {item.icon}
-                </div>
+        {/* Contact Grid */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12 max-w-5xl mx-auto">
+          {contactMethods.map((item, i) => (
+            <motion.a
+              key={i}
+              href={item.link}
+              target={item.link?.startsWith("http") ? "_blank" : "_self"}
+              className="glass-card p-6 rounded-2xl flex items-center gap-4 hover:scale-[1.02] transition"
+            >
+              <div className="text-2xl">{item.icon}</div>
+              <div>
+                <p className="text-xs text-gray-400 uppercase">{item.label}</p>
+                <p className="font-semibold text-gray-800 dark:text-white">{item.val}</p>
+              </div>
+            </motion.a>
+          ))}
+        </div>
 
-                <div>
-                  <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-gray-400 mb-1">
-                    {item.label}
-                  </p>
-                  <p className="text-base md:text-lg font-bold text-gray-800 dark:text-gray-100 group-hover:text-blue-600 transition-colors">
-                    {item.val}
-                  </p>
-                </div>
-              </motion.a>
+        {/* Social + CTA */}
+        <div className="text-center">
+          <div className="flex justify-center gap-5 mb-6">
+            {socials.map((soc, i) => (
+              <a
+                key={i}
+                href={soc.link}
+                target="_blank"
+                className="w-12 h-12 rounded-xl bg-gray-900 text-white flex items-center justify-center hover:scale-110 transition"
+              >
+                {soc.icon}
+              </a>
             ))}
           </div>
 
-          {/* SOCIAL + FINAL CTA */}
-          <motion.div
-            className="glass-card p-10 rounded-[2.5rem] text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            viewport={{ once: true }}
+          <button
+            onClick={() => setOpen(true)}
+            className="px-8 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold shadow-lg hover:scale-105 transition"
           >
-            <h3 className="text-xl font-bold mb-6 text-gray-800 dark:text-white">
-              Or Connect With Me
-            </h3>
-
-            <div className="flex justify-center gap-6 mb-8">
-              {socials.map((soc, i) => (
-                <a
-                  key={i}
-                  href={soc.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-14 h-14 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center text-2xl hover:scale-110 transition-all duration-300"
-                >
-                  {soc.icon}
-                </a>
-              ))}
-            </div>
-
-            {/* FINAL MESSAGE */}
-            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium max-w-md mx-auto">
-              🚀 Ready to start your project? Message me on WhatsApp or LinkedIn — I usually reply quickly.
-            </p>
-          </motion.div>
+            Contact Us
+          </button>
         </div>
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-white/20 rounded-3xl p-8 w-full max-w-lg shadow-2xl"
+            >
+              {/* Header */}
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold">Send a Message</h2>
+                <button onClick={() => setOpen(false)}>✕</button>
+              </div>
+
+              {/* Form */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const form = e.target;
+                  const name = form.name.value;
+                  const email = form.email.value;
+                  const message = form.message.value;
+
+                  const subject = encodeURIComponent(`Message from ${name}`);
+                  const body = encodeURIComponent(`${message}\n\nEmail: ${email}`);
+
+                  window.location.href = `mailto:muhammadsaifrehman.6987@gmail.com?subject=${subject}&body=${body}`;
+                }}
+                className="space-y-5"
+              >
+                {/* Name */}
+                <div className="relative">
+                  <FaUser className="absolute top-4 left-4 text-gray-400" />
+                  <input
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                    className="w-full pl-12 p-3 rounded-xl border bg-white/50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="relative">
+                  <FaEnvelope className="absolute top-4 left-4 text-gray-400" />
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                    className="w-full pl-12 p-3 rounded-xl border bg-white/50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+                </div>
+
+                {/* Message */}
+                <textarea
+                  name="message"
+                  placeholder="Your Message..."
+                  required
+                  rows={4}
+                  className="w-full p-3 rounded-xl border bg-white/50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                />
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
+                >
+                  <FaPaperPlane />
+                  Send Message
+                </button>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
