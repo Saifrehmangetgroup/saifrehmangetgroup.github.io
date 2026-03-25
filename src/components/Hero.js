@@ -9,7 +9,7 @@ function Hero() {
       id="hero"
       className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-16"
     >
-      {/* Dynamic Background Elements */}
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         <div className="mesh-bg" />
         <div className="absolute top-1/4 -left-12 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-pulse" />
@@ -17,8 +17,11 @@ function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        {/* Left Side: Intro */}
+        
+        {/* LEFT SIDE */}
         <div className="text-center md:text-left">
+
+          {/* Availability */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -30,99 +33,108 @@ function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
-              Available for new opportunities
+              Available for new projects
             </span>
           </motion.div>
 
-          <motion.h2
-            className="text-5xl sm:text-7xl font-extrabold mb-4 leading-[1.1]"
+          {/* MAIN HEADLINE (CLIENT FOCUSED) */}
+          <motion.h1
+            className="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Hi, I'm <br />
-            <span className="text-gradient">Muhammad Saif Ur Rehman</span>
-          </motion.h2>
+            I build fast, modern websites that help businesses grow 🚀
+          </motion.h1>
 
-          <motion.div
-            className="text-xl sm:text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-6 flex flex-wrap gap-x-3"
+          {/* NAME (secondary, not primary) */}
+          <motion.h2
+            className="text-xl sm:text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <span>Senior Backend Architect</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-blue-600 dark:text-blue-400">Laravel Expert</span>
+            I'm <span className="text-gradient">Muhammad Saif Ur Rehman</span>
+          </motion.h2>
+
+          {/* ROLE */}
+          <motion.div
+            className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            Web Developer • Laravel Expert • API Specialist
           </motion.div>
 
+          {/* DESCRIPTION */}
           <motion.p
             className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            I specialize in building <span className="text-gray-900 dark:text-white font-medium italic underline decoration-blue-500/30 underline-offset-4">scalable, high-performance systems</span> that power millions of users. My focus is on robust API architecture, security, and cloud-native solutions.
+            I help startups and small businesses build scalable, high-performance websites and backend systems that improve user experience, increase engagement, and drive real results.
           </motion.p>
 
-          {/* Tech Stack */}
+          {/* TECH STACK (kept but simplified meaning) */}
           <motion.div
             className="flex flex-wrap gap-2 mb-8 justify-center md:justify-start text-sm text-gray-600 dark:text-gray-400"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.5 }}
           >
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full font-bold uppercase tracking-tighter text-[10px]">Laravel</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full font-bold uppercase tracking-tighter text-[10px]">REST APIs</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full font-bold uppercase tracking-tighter text-[10px]">Redis</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full font-bold uppercase tracking-tighter text-[10px]">AWS</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full font-bold uppercase tracking-tighter text-[10px]">MySQL</span>
+            {["Laravel", "APIs", "AWS", "MySQL", "Performance Optimization"].map((tech, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full font-bold uppercase text-[10px]"
+              >
+                {tech}
+              </span>
+            ))}
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* CTA BUTTONS */}
           <motion.div
             className="flex flex-wrap gap-4 justify-center md:justify-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
           >
             <a
               href="#projects"
-              className="group relative inline-flex items-center bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-4 rounded-full font-bold shadow-2xl hover:shadow-blue-500/20 transition-all overflow-hidden"
+              className="group inline-flex items-center bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-blue-500/20 transition-all"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Explore My Work <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+              View My Work
+              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </a>
 
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white px-8 py-4 rounded-full font-bold border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all"
+              className="flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white px-8 py-4 rounded-full font-bold border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-all"
             >
-              <FaDownload className="text-sm" /> Resume
+              <FaDownload /> Download Resume
             </a>
           </motion.div>
         </div>
 
-        {/* Right Image */}
+        {/* RIGHT SIDE IMAGE */}
         <motion.div
           className="relative flex justify-center items-center"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
-          {/* Decorative rings */}
-          <div className="absolute inset-0 border-[1px] border-blue-500/20 rounded-full animate-[spin_20s_linear_infinite]" />
-          <div className="absolute -inset-4 border-[1px] border-indigo-500/10 rounded-full animate-[spin_30s_linear_infinite_reverse]" />
+          <div className="absolute inset-0 border border-blue-500/20 rounded-full animate-spin-slow" />
+          <div className="absolute -inset-4 border border-indigo-500/10 rounded-full animate-spin-reverse" />
 
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden shadow-2xl group transition-all duration-500 border-4 border-white dark:border-gray-800">
-            <div className="absolute inset-0 bg-blue-500/10 group-hover:opacity-0 transition-opacity z-10" />
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800">
             <img
               src={profileImg}
               alt="Muhammad Saif Ur Rehman"
-              className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
+              className="w-full h-full object-cover hover:scale-110 transition-all duration-500"
             />
           </div>
         </motion.div>
