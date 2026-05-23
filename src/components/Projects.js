@@ -4,6 +4,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 function Projects() {
   const projects = [
+
     {
       title: "Raabta App",
       subtitle: "Used by 1M+ users nationwide",
@@ -24,6 +25,16 @@ function Projects() {
       link: "https://hivecomms.app/",
       image: "/hivecomms.png",
       tag: "Automation"
+    },
+    {
+      title: "eFleetApp",
+      subtitle: "Fleet Management Platform",
+      description: "Developed a comprehensive fleet management application, featuring robust backend architecture and an interactive frontend interface.",
+      impact: "Streamlined fleet operations and improved overall system tracking efficiency.",
+      tech: ["Laravel", "MySQL", "React JS"],
+      link: "https://efleetapp.com/",
+      image: "/efleetlogo.png",
+      tag: "Fleet Management"
     },
     {
       title: "Linkon.social",
