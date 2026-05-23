@@ -40,8 +40,8 @@ function Skills() {
         { name: "Laravel", icon: <FaLaravel className="text-red-500" /> },
         { name: "PHP", icon: <FaPhp className="text-blue-500" /> },
         { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-        { name: "Express.js", icon: <SiExpress className="text-gray-400" /> },
-        { name: "Microservices", icon: <AiOutlineDeploymentUnit className="text-indigo-400" /> },
+        { name: "Express.js", icon: <SiExpress className="text-gray-700 dark:text-gray-300" /> },
+        { name: "Microservices", icon: <AiOutlineDeploymentUnit className="text-indigo-500 dark:text-indigo-400" /> },
       ],
     },
     {
@@ -63,7 +63,7 @@ function Skills() {
         { name: "Docker", icon: <SiDocker className="text-blue-500" /> },
         { name: "Nginx", icon: <SiNginx className="text-green-500" /> },
         { name: "CI/CD", icon: <FaGitAlt className="text-orange-600" /> },
-        { name: "Linux", icon: <SiLinux className="text-gray-300" /> },
+        { name: "Linux", icon: <SiLinux className="text-gray-700 dark:text-gray-200" /> },
       ],
     },
     {
@@ -104,7 +104,7 @@ function Skills() {
           {categories.map((category, idx) => (
             <motion.div
               key={idx}
-              className="glass-card p-10 rounded-[2.5rem] group"
+              className="glass-card p-10 rounded-[2.5rem] group shadow-md hover:shadow-lg transition-shadow"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
@@ -129,10 +129,10 @@ function Skills() {
                   <motion.div
                     key={i}
                     variants={itemVariants}
-                    className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:-translate-y-1 transition-all"
+                    className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-slate-100 dark:bg-gray-800/60 border border-slate-200 dark:border-white/5 shadow-sm hover:-translate-y-1 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-500/30 transition-all duration-200"
                   >
                     <span className="text-4xl">{skill.icon}</span>
-                    <span className="text-[10px] font-bold uppercase text-center">
+                    <span className="text-[10px] font-bold uppercase text-center text-gray-700 dark:text-gray-300">
                       {skill.name}
                     </span>
                   </motion.div>

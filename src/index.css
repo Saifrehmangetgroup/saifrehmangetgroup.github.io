@@ -9,7 +9,7 @@
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.3);
   }
-  
+
   .dark {
     --glass-bg: rgba(17, 24, 39, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
@@ -25,16 +25,21 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Outfit', sans-serif;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-white/5;
+    @apply bg-white dark:bg-gray-900/40 backdrop-blur-xl border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none;
   }
-  
+
   .premium-gradient {
     @apply bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700;
   }
@@ -57,16 +62,16 @@
   height: 100%;
   z-index: -1;
   background-color: #ffffff;
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(210,100%,95%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,100%,95%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(240,100%,95%,1) 0, transparent 50%);
+  background-image:
+    radial-gradient(at 0% 0%, hsla(210, 100%, 95%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 100%, 95%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(240, 100%, 95%, 1) 0, transparent 50%);
 }
 
 .dark .mesh-bg {
   background-color: #030712;
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(210,100%,10%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,100%,10%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(240,100%,10%,1) 0, transparent 50%);
+  background-image:
+    radial-gradient(at 0% 0%, hsla(210, 100%, 10%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 100%, 10%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(240, 100%, 10%, 1) 0, transparent 50%);
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {  FaGraduationCap, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+import { FaGraduationCap, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 
 function Experience() {
   const work = [
@@ -77,7 +77,7 @@ function Experience() {
               {work.map((job, i) => (
                 <motion.div
                   key={i}
-                  className="glass-card p-8 rounded-3xl hover:border-blue-500/30 transition-all"
+                  className="glass-card p-8 rounded-3xl hover:border-blue-400 dark:hover:border-blue-500/30 hover:shadow-md transition-all"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
@@ -131,10 +131,10 @@ function Experience() {
 
               {education.map((edu, i) => (
                 <div key={i}>
-                  <h4 className="font-bold">{edu.degree}</h4>
+                  <h4 className="font-bold text-gray-800 dark:text-white">{edu.degree}</h4>
                   <p className="text-blue-600">{edu.university}</p>
-                  <p className="text-sm text-gray-500">{edu.location}</p>
-                  <p className="text-xs text-gray-400">{edu.date}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{edu.location}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{edu.date}</p>
                 </div>
               ))}
             </motion.div>

@@ -48,12 +48,12 @@ function Contact() {
 
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
-      
+
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px]" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+
         {/* Title */}
         <div className="text-center mb-16">
           <motion.h2
@@ -73,18 +73,17 @@ function Contact() {
           </motion.p>
         </div>
 
-        {/* Contact Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-12 max-w-5xl mx-auto">
           {contactMethods.map((item, i) => (
             <motion.a
               key={i}
               href={item.link}
               target={item.link?.startsWith("http") ? "_blank" : "_self"}
-              className="glass-card p-6 rounded-2xl flex items-center gap-4 hover:scale-[1.02] transition"
+              className="glass-card p-6 rounded-2xl flex items-center gap-4 hover:scale-[1.02] hover:shadow-md transition-all"
             >
               <div className="text-2xl">{item.icon}</div>
               <div>
-                <p className="text-xs text-gray-400 uppercase">{item.label}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase font-semibold">{item.label}</p>
                 <p className="font-semibold text-gray-800 dark:text-white">{item.val}</p>
               </div>
             </motion.a>
