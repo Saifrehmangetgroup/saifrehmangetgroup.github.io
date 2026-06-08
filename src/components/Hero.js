@@ -37,24 +37,25 @@ function Hero() {
             </span>
           </motion.div>
 
+          {/* GREETING & NAME */}
+          <motion.h2
+            className="text-lg sm:text-xl font-extrabold text-blue-600 dark:text-blue-400 mb-4 tracking-wider uppercase"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Hi, I am <span className="text-gradient">Muhammad Saif Ur Rehman</span>
+          </motion.h2>
+
           {/* MAIN HEADLINE */}
           <motion.h1
-            className="text-5xl lg:text-7xl font-extrabold mb-6 leading-[1.1] tracking-tight"
+            className="text-4xl lg:text-6xl font-extrabold mb-6 leading-[1.15] tracking-tight text-gray-900 dark:text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            I build <span className="text-blue-600">fast</span>, modern systems that drive growth 🚀
+            Architecting <span className="text-gradient">high-performance</span> backend systems & scalable applications
           </motion.h1>
-
-          <motion.h2
-            className="text-xl sm:text-2xl font-bold text-gray-700 dark:text-gray-300 mb-6 flex items-center justify-center md:justify-start gap-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            I'm <span className="text-gradient">Muhammad Saif Ur Rehman</span>
-          </motion.h2>
 
           {/* ROLE & DESCRIPTION */}
           <motion.p
@@ -63,7 +64,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Backend Architect & Full-Stack Developer specializing in high-performance Laravel & Node.js systems that scale with your business.
+            Senior Backend Architect and Full-Stack Developer specializing in building secure, distributed systems with Laravel, Node.js, and cloud-native infrastructure.
           </motion.p>
 
           {/* CTA BUTTONS */}

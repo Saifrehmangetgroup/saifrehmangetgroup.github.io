@@ -21,50 +21,46 @@ import { AiOutlineDeploymentUnit } from "react-icons/ai";
 function Skills() {
   const categories = [
     {
-      title: "Backend Core",
-      desc: "Architecting high-performance logical engines.",
-      iconBg: "bg-blue-50 dark:bg-blue-900/10",
+      title: "Backend Development",
+      desc: "Building secure, fast, and scalable systems for real-world applications",
       skills: [
-        { name: "Laravel 11", icon: <FaLaravel className="text-red-500" /> },
-        { name: "PHP 8.3", icon: <FaPhp className="text-blue-500" /> },
+        { name: "Laravel", icon: <FaLaravel className="text-red-500" /> },
+        { name: "PHP", icon: <FaPhp className="text-blue-500" /> },
         { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
         { name: "Express.js", icon: <SiExpress className="text-gray-700 dark:text-gray-300" /> },
         { name: "Microservices", icon: <AiOutlineDeploymentUnit className="text-indigo-500" /> },
       ],
     },
     {
-      title: "Data Layer",
-      desc: "Optimizing storage for sub-second responses.",
-      iconBg: "bg-indigo-50 dark:bg-indigo-900/10",
+      title: "Databases & Performance",
+      desc: "Optimizing data systems for speed, reliability, and smooth user experience",
       skills: [
-        { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
-        { name: "Redis", icon: <SiRedis className="text-red-600" /> },
-        { name: "Postgres", icon: <SiPostgresql className="text-blue-300" /> },
-        { name: "Queues", icon: <SiRedis className="text-orange-500" /> },
+        { name: "MySQL / PostgreSQL", icon: <SiMysql className="text-blue-400" /> },
+        { name: "Redis (Caching)", icon: <SiRedis className="text-red-600" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+        { name: "Queues & Jobs", icon: <SiRedis className="text-orange-500" /> },
+        { name: "Database Design", icon: <SiPostgresql className="text-blue-300" /> },
       ],
     },
     {
-      title: "Architecture",
-      desc: "Scaling systems to handle millions of users.",
-      iconBg: "bg-green-50 dark:bg-green-900/10",
+      title: "Cloud & Deployment",
+      desc: "Deploying and managing applications for scalability and high performance",
       skills: [
         { name: "AWS", icon: <SiAmazonwebservices className="text-yellow-500" /> },
         { name: "Docker", icon: <SiDocker className="text-blue-500" /> },
         { name: "Nginx", icon: <SiNginx className="text-green-500" /> },
         { name: "CI/CD", icon: <FaGitAlt className="text-orange-600" /> },
-        { name: "Bitbucket", icon: <SiBitbucket className="text-blue-600" /> },
+        { name: "Linux", icon: <SiLinux className="text-gray-300" /> },
       ],
     },
     {
-      title: "Full Stack",
-      desc: "Bridging logic with intuitive user experiences.",
-      iconBg: "bg-purple-50 dark:bg-purple-900/10",
+      title: "Frontend & Tools",
+      desc: "Creating modern interfaces and integrating complete web solutions",
       skills: [
-        { name: "React", icon: <FaReact className="text-blue-400" /> },
-        { name: "Tailwind", icon: <SiTailwindcss className="text-teal-400" /> },
-        { name: "Postman", icon: <SiPostman className="text-orange-500" /> },
-        { name: "REST APIs", icon: <SiPostman className="text-blue-400" /> },
+        { name: "React / Next.js", icon: <FaReact className="text-blue-400" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
+        { name: "REST APIs", icon: <SiPostman className="text-orange-500" /> },
+        { name: "Version Control", icon: <SiBitbucket className="text-blue-600" /> },
         { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
       ],
     },
@@ -98,31 +94,34 @@ function Skills() {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {categories.map((category, idx) => (
             <motion.div
               key={idx}
-              className="glass-card p-8 flex flex-col items-center text-center group"
+              className="glass-card p-10 rounded-[2.5rem] flex flex-col items-start text-left group relative overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className={`w-14 h-14 rounded-2xl ${category.iconBg} flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                <span className="opacity-80">0{idx + 1}</span>
-              </div>
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                {category.title}
+              </h3>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mb-8">
+                {category.desc}
+              </p>
 
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{category.title}</h3>
-              <p className="text-[10px] uppercase font-black tracking-widest text-blue-600/60 mb-8">{category.desc}</p>
-
-              <div className="flex flex-wrap justify-center gap-3 mt-auto">
+              {/* Skills Grid */}
+              <div className="grid grid-cols-3 gap-4 w-full mt-auto">
                 {category.skills.map((skill, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 group/skill hover:border-blue-500/30 transition-all min-w-[70px]"
+                    className="flex flex-col items-center justify-center gap-3 p-4 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:-translate-y-1 transition-all"
                   >
-                    <span className="text-2xl group-hover/skill:scale-110 transition-transform duration-300">{skill.icon}</span>
-                    <span className="text-[9px] font-black uppercase text-gray-500 dark:text-gray-400 text-center leading-none">
+                    <span className="text-4xl flex items-center justify-center">
+                      {skill.icon}
+                    </span>
+                    <span className="text-[10px] font-bold uppercase text-gray-700 dark:text-gray-300 text-center leading-tight">
                       {skill.name}
                     </span>
                   </div>
