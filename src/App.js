@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import CustomCursor from "./components/CustomCursor";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
@@ -14,7 +15,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 function App() {
   return (
     <ThemeProvider>
-      <div className="pt-20 bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen">
+      <div className="pt-20 bg-white dark:bg-[#030712] transition-colors duration-500 min-h-screen">
+        <CustomCursor />
         <Navbar />
         <Hero />
         <About />
