@@ -1,10 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaRocket, FaCode, FaServer } from "react-icons/fa";
 
 function Projects() {
   const projects = [
-
     {
       title: "Raabta App",
       subtitle: "Used by 1M+ users nationwide",
@@ -99,76 +98,135 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="relative py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="projects" className="relative section-padding overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        {/* TITLE */}
-        <div className="flex flex-col md:flex-row justify-between mb-16 gap-6">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
+            <motion.p
+              className="text-blue-600 font-extrabold uppercase tracking-[0.2em] text-[11px] mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+            >
+              Selected Case Studies
+            </motion.p>
             <motion.h2
-              className="text-4xl md:text-5xl font-bold mb-4"
+              className="text-4xl md:text-5xl font-extrabold mb-6"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              My <span className="text-gradient">Projects</span>
+              Proven <span className="text-gradient">Solutions</span>
             </motion.h2>
 
-            <p className="text-gray-600 dark:text-gray-400 text-lg">
-              Here are some real-world systems I’ve built to help businesses scale, improve performance, and grow online.
+            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed opacity-90">
+              A deep dive into the high-performance systems I've built to help businesses scale and handle millions of real-world interactions.
             </p>
           </div>
 
-          <a
+          <motion.a
             href="https://github.com/Saifrehmangetgroup"
             target="_blank"
             rel="noreferrer"
-            className="text-blue-600 font-bold"
+            className="flex items-center gap-2 text-blue-600 font-extrabold uppercase tracking-widest text-xs hover:gap-4 transition-all"
+            whileHover={{ x: 5 }}
           >
-            View More →
-          </a>
+            Explore Repo <FaExternalLinkAlt />
+          </motion.a>
         </div>
 
-        {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((proj, index) => (
-            <motion.div
-              key={index}
-              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <img src={proj.image} alt={proj.title} className="w-full h-52 object-cover" />
-
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{proj.title}</h3>
-                <p className="text-sm text-blue-500 mb-2">{proj.subtitle}</p>
-
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  {proj.description}
-                </p>
-
-                <p className="text-sm font-semibold text-green-600 mb-4">
-                  {proj.impact}
-                </p>
-
-                <a
-                  href={proj.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-600 font-bold"
-                >
-                  View Project <FaExternalLinkAlt />
-                </a>
-              </div>
-            </motion.div>
+            <ProjectCard key={index} proj={proj} index={index} />
           ))}
         </div>
-
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ proj, index }) {
+  return (
+    <motion.div
+      className="glass-card flex flex-col h-full group overflow-hidden"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      viewport={{ once: true }}
+    >
+      {/* Image / Placeholder */}
+      <div className="h-56 relative overflow-hidden bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+        {proj.image ? (
+          <img
+            src={proj.image}
+            alt={proj.title}
+            className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'flex';
+            }}
+          />
+        ) : null}
+
+        {/* Modern Placeholder */}
+        <div className={`absolute inset-0 items-center justify-center bg-gradient-to-br from-blue-600/10 to-indigo-600/10 flex ${proj.image ? 'hidden' : 'flex'}`}>
+          <div className="flex flex-col items-center gap-3">
+            <FaCode className="text-4xl text-blue-500/40" />
+            <span className="text-[10px] font-black uppercase tracking-widest text-blue-500/40">Engine Prototype</span>
+          </div>
+        </div>
+
+        <div className="absolute top-4 left-4">
+          <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-black/70 backdrop-blur-md text-[9px] font-black uppercase tracking-widest text-blue-600 border border-blue-500/10">
+            {proj.tag}
+          </span>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-8 flex flex-col flex-grow">
+        <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">{proj.category}</p>
+        <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          {proj.title}
+        </h3>
+        <p className="text-sm font-bold text-blue-500/60 mb-6 uppercase tracking-wider">{proj.subtitle}</p>
+
+        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 opacity-90 line-clamp-3">
+          {proj.description}
+        </p>
+
+        <div className="mt-auto space-y-6">
+          <div className="p-4 rounded-2xl bg-blue-500/5 border border-blue-500/10">
+            <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-1.5 flex items-center gap-2">
+              <FaRocket className="text-[8px]" /> Key Impact
+            </p>
+            <p className="text-xs font-bold text-gray-800 dark:text-gray-100 leading-tight">
+              {proj.impact}
+            </p>
+          </div>
+
+          <div className="flex justify-between items-center">
+            <div className="flex gap-2">
+              {proj.tech.slice(0, 3).map((t, i) => (
+                <span key={i} className="text-[8px] font-black px-2 py-0.5 rounded-md bg-gray-100 dark:bg-white/5 text-gray-500 border border-gray-200 dark:border-white/5 uppercase">
+                  {t}
+                </span>
+              ))}
+            </div>
+            <a
+              href={proj.link}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-blue-600 font-extrabold uppercase tracking-widest text-[10px] hover:text-blue-500 transition-colors"
+            >
+              Launch <FaExternalLinkAlt className="text-[9px]" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
