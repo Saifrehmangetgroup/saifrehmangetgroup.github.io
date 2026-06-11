@@ -57,15 +57,16 @@ function Projects() {
       tag: "Gaming"
     },
     {
-      title: "Hiphop Platform",
-      subtitle: "Short Video System",
-      description: "Created backend for video content delivery and optimized media performance for faster loading.",
-      impact: "Reduced video load time by 40%, improving user experience.",
-      tech: ["Laravel", "Streaming"],
-      link: "https://hiphop.socioon.com",
-      image: "/hiphop.png",
-      tag: "Media"
+      title: "Bracktix",
+      subtitle: "Tournament System",
+      description: "Created tournament system with automated bracket logic and real-time updates.",
+      impact: "Reduced system errors and improved reliability during peak usage.",
+      tech: ["Laravel", "Redis"],
+      link: "https://bracktix.sadacode.com",
+      image: "/bracktix.png",
+      tag: "Gaming"
     },
+    
     {
       title: "Club92",
       subtitle: "Live Audio Platform",
@@ -87,15 +88,16 @@ function Projects() {
       tag: "E-commerce"
     },
     {
-      title: "Bracktix",
-      subtitle: "Tournament System",
-      description: "Created tournament system with automated bracket logic and real-time updates.",
-      impact: "Reduced system errors and improved reliability during peak usage.",
-      tech: ["Laravel", "Redis"],
-      link: "https://bracktix.sadacode.com",
-      image: "/bracktix.png",
-      tag: "Gaming"
-    }
+      title: "Hiphop Platform",
+      subtitle: "Short Video System",
+      description: "Created backend for video content delivery and optimized media performance for faster loading.",
+      impact: "Reduced video load time by 40%, improving user experience.",
+      tech: ["Laravel", "Streaming"],
+      link: "https://hiphop.socioon.com",
+      image: "/hiphop.png",
+      tag: "Media"
+    },
+ 
   ];
 
   return (
