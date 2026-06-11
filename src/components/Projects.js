@@ -13,7 +13,7 @@ function Projects() {
       link: "https://ptiraabta.pk",
       image: "/ptiraabta.png",
       tag: "High Traffic",
-      category: "Backend Architecture"
+      featured: true
     },
     {
       title: "HiveComms",
@@ -23,8 +23,7 @@ function Projects() {
       tech: ["Node.js", "PostgreSQL", "APIs"],
       link: "https://hivecomms.app/",
       image: "/hivecomms.png",
-      tag: "Automation",
-      category: "SaaS Development"
+      tag: "Automation"
     },
     {
       title: "eFleetApp",
@@ -34,8 +33,7 @@ function Projects() {
       tech: ["Laravel", "MySQL", "React JS"],
       link: "https://efleetapp.com/",
       image: "/efleetlogo.png",
-      tag: "Fleet Management",
-      category: "Full Stack"
+      tag: "Fleet Management"
     },
     {
       title: "Linkon.social",
@@ -45,8 +43,7 @@ function Projects() {
       tech: ["CodeIgniter", "MySQL"],
       link: "https://linkon.social",
       image: "/linkon.png",
-      tag: "Social",
-      category: "Performance Scaling"
+      tag: "Social"
     },
     {
       title: "Ingage.gg",
@@ -56,8 +53,27 @@ function Projects() {
       tech: ["Laravel", "MySQL"],
       link: "https://ingage.gg",
       image: "/ingage.png",
-      tag: "Gaming",
-      category: "Real-time Systems"
+      tag: "Gaming"
+    },
+    {
+      title: "Hiphop Platform",
+      subtitle: "Short Video System",
+      description: "Created backend for video content delivery and optimized media performance for faster loading.",
+      impact: "Reduced video load time by 40%, improving user experience.",
+      tech: ["Laravel", "Streaming"],
+      link: "https://hiphop.socioon.com",
+      image: "/hiphop.png",
+      tag: "Media"
+    },
+    {
+      title: "Club92",
+      subtitle: "Live Audio Platform",
+      description: "Built real-time audio communication system with scalable backend and user role management.",
+      impact: "Handled thousands of live listeners without performance issues.",
+      tech: ["Laravel", "WebRTC"],
+      link: "https://club92.socioon.com",
+      image: "/club92.png",
+      tag: "Streaming"
     },
     {
       title: "Gtcree Store",
@@ -67,8 +83,17 @@ function Projects() {
       tech: ["Laravel", "E-commerce"],
       link: "https://gtcree.com",
       image: "/gtcree.png",
-      tag: "E-commerce",
-      category: "E-commerce"
+      tag: "E-commerce"
+    },
+    {
+      title: "Bracktix",
+      subtitle: "Tournament System",
+      description: "Created tournament system with automated bracket logic and real-time updates.",
+      impact: "Reduced system errors and improved reliability during peak usage.",
+      tech: ["Laravel", "Redis"],
+      link: "https://bracktix.sadacode.com",
+      image: "/bracktix.png",
+      tag: "Gaming"
     }
   ];
 
